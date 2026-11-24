@@ -4,6 +4,7 @@ queue management, and local media retrieval in Antigravity and VS Code.
 """
 
 import sys
+import json
 from pathlib import Path
 try:
     from mcp.server.mcpserver import MCPServer as FastMCP
@@ -91,6 +92,63 @@ def queue_all_character_images() -> str:
     cm = CharacterManager()
     results = cm.queue_character_images(pm=pm)
     return f"Queued {len(results)} character prompts into Google Flow:\n" + "\n".join(results)
+
+
+@mcp.tool()
+def get_character_story_context(character_id: str) -> str:
+    """Retrieve full story and visual anchor context for Gemini to write a 40s Shorts narrative.
+
+    Args:
+        character_id: ID of the character (e.g. 'tommy_tomato', 'rozy_rose', 'himachali_seb').
+    """
+    from character_manager import CharacterManager
+    cm = CharacterManager()
+    try:
+        ctx = cm.get_character_story_context(character_id)
+        return json.dumps(ctx, indent=2, ensure_ascii=False)
+    except Exception as e:
+        return f"Error: {e}"
+
+
+@mcp.tool()
+def queue_character_story(character_id: str) -> str:
+    """Queue all 5 sequential 8-second video beat prompts for a character into Google Flow (40s Master Short).
+
+    Args:
+        character_id: ID of the character (e.g. 'tommy_tomato', 'rozy_rose', 'captain_wiggly').
+    """
+    from character_manager import CharacterManager
+    cm = CharacterManager()
+    try:
+        res = cm.queue_character_story(character_id, pm=pm)
+        lines = [
+            f"Successfully queued 5-beat story for {res['character_name']} ({res['category']}, {res['state']}):",
+            f"- Story ID: {res['story_id']}",
+            f"- Target Master Video: {res['target_master_video']}",
+            f"- Queued Prompt IDs: {', '.join(res['queued_prompt_ids'])}",
+        ]
+        return "\n".join(lines)
+    except Exception as e:
+        return f"Error: {e}"
+
+
+@mcp.tool()
+def check_story_status(story_id: str) -> str:
+    """Check the generation progress of all 5 clips for a specific story.
+
+    Args:
+        story_id: The ID of the story (e.g. 'story_tommy_tomato_1729000000').
+    """
+    from character_manager import CharacterManager
+    cm = CharacterManager()
+    status = cm.check_story_completion(story_id, pm=pm)
+    if not status.get("found"):
+        return f"No clips found for story ID '{story_id}'."
+    return (
+        f"Story [{story_id}]: {status['completed']}/{status['total_clips']} clips completed | "
+        f"Pending: {status['pending']} | Failed: {status['failed']} | "
+        f"Ready to stitch: {status['ready_to_stitch']}"
+    )
 
 
 @mcp.tool()
