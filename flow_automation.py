@@ -397,6 +397,33 @@ class GoogleFlowAutomation:
             except Exception as e:
                 logger.warning(f"Direct stream URL download notice ({e}), falling back to UI extraction...")
 
+        # 1. Flow Video Tile Desktop Menu: Hover -> More options -> Download -> 720p
+        tile = page.locator("flow-video-tile").first
+        if tile.is_visible():
+            try:
+                logger.info("Found flow-video-tile on canvas. Hovering to reveal hotbar...")
+                tile.hover()
+                page.wait_for_timeout(600)
+                more_btn = tile.locator("button[aria-label='More options']").first
+                if more_btn.is_visible():
+                    more_btn.click()
+                    page.wait_for_timeout(800)
+                    dl_menu = page.locator(".cdk-overlay-container button:has-text('Download'), .cdk-overlay-container [role='menuitem']:has-text('Download')").first
+                    if dl_menu.is_visible():
+                        logger.info("Opening Download format submenu...")
+                        dl_menu.click()
+                        page.wait_for_timeout(800)
+                        target_opt = page.locator(".cdk-overlay-container button:has-text('720p'), .cdk-overlay-container [role='menuitem']:has-text('720p'), .cdk-overlay-container button:has-text('Original')").first
+                        if target_opt.is_visible():
+                            logger.info("Triggering 720p Original size video download...")
+                            with page.expect_download(timeout=25000) as d_info:
+                                target_opt.click()
+                            d = d_info.value
+                            saved_path = self.downloader.save_playwright_download(d, target_filename=target_name)
+                            return saved_path
+            except Exception as e:
+                logger.debug(f"Flow tile menu download note: {e}")
+
         # If fresh video element is not yet in DOM, click the canvas card
         has_fresh_video = False
         for i in range(page.locator("video").count()):
@@ -558,6 +585,22 @@ class GoogleFlowAutomation:
                     logger.error(f"Generation error detected: {error_detected}")
                     self.prompt_manager.update_status(prompt_id, "Failed", error=error_detected)
                     return False
+
+                # 1. Check for live progress percentage or completed video tile
+                try:
+                    import re
+                    body_txt = page.locator("body").inner_text()
+                    pct = re.search(r'(\d{1,3})%', body_txt)
+                    if pct:
+                        logger.info(f"Google Flow video rendering progress: {pct.group(1)}%")
+                    elif page.locator("flow-video-tile").count() > 0:
+                        elapsed = time.time() - start_time
+                        if elapsed > 15:
+                            logger.info("Generation complete! flow-video-tile detected on canvas.")
+                            generation_completed = True
+                            break
+                except Exception:
+                    pass
 
                 # Check if stream URL was captured directly (guaranteed fresh)
                 if captured_stream_url:

@@ -49,12 +49,14 @@ class BrowserManager:
         chrome_path = Path("C:/Program Files/Google/Chrome/Application/chrome.exe")
         channel = "chrome" if chrome_path.exists() else None
 
+        viewport = None if not self.headless else {"width": 1920, "height": 1080}
         self.context = self.playwright.chromium.launch_persistent_context(
             user_data_dir=str(self.user_data_dir),
             headless=self.headless,
             channel=channel,
             args=args,
-            no_viewport=True,
+            viewport=viewport,
+            no_viewport=(viewport is None),
             accept_downloads=True,
         )
 
