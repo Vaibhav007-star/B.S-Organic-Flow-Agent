@@ -46,12 +46,15 @@ class BrowserManager:
             "--start-maximized",
         ]
 
+        chrome_path = Path("C:/Program Files/Google/Chrome/Application/chrome.exe")
+        channel = "chrome" if chrome_path.exists() else None
+
         self.context = self.playwright.chromium.launch_persistent_context(
             user_data_dir=str(self.user_data_dir),
             headless=self.headless,
-            channel=None,  # Playwright bundled chromium
+            channel=channel,
             args=args,
-            viewport={"width": 800, "height": 600},
+            no_viewport=True,
             accept_downloads=True,
         )
 
@@ -68,10 +71,6 @@ class BrowserManager:
         else:
             self.page = self.context.new_page()
 
-        try:
-            self.page.set_viewport_size({"width": 800, "height": 600})
-        except Exception:
-            pass
 
         self.page.set_default_timeout(self.timeout_sec * 1000)
         return self.context, self.page
