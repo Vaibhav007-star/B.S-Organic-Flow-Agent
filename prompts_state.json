@@ -221,11 +221,11 @@
   {
     "id": "f3f5baa4",
     "prompt": "Vertical 9:16, photoreal premium agriculture commercial, 4K cinematography. Sunrise low-angle ground-level macro shot of dry, severely cracked, pale grey-brown exhausted soil. A lone stunted, yellowing crop plant struggles in the dry dirt. Desaturated, dusty earth tones, dust motes drifting in the sharp low morning sun with atmospheric god-rays. Slow smooth push-in camera movement across the cracked earth. Shallow depth of field. Close-mic ASMR dry wind whistle and brittle dirt crumbling. Negative: people, hands, animals, cartoon, text, logos, watermark.",
-    "status": "Failed",
+    "status": "Pending",
     "output_file": "bs_organic_master_commercial_clip_01.mp4",
     "error": "Generation timed out after 360 seconds.",
     "created_at": "2026-11-24T08:09:09.535891+00:00",
-    "updated_at": "2026-11-24T08:51:42.321282+00:00",
+    "updated_at": "2026-11-24T09:17:18.610810+00:00",
     "story_id": "bs_organic_master_commercial_40s",
     "beat": 1,
     "beat_title": "The Hook: Tired Soil"

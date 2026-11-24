@@ -110,10 +110,78 @@ def render_sample_preview_short(output_file: Path, character_name: str = "Tommy 
     return output_file
 
 
+def build_commercial_40s_master(output_file: Optional[Path] = None) -> Path:
+    """Builds the official 40.0s photoreal B.S Organic Commercial Master Short (1080x1920 @ 60fps)."""
+    ffmpeg = get_ffmpeg_path()
+    out_master = output_file or (OUTPUT_DIR / "bs_organic_commercial_40s_master.mp4")
+    bag_ref = BASE_DIR / "assets" / "bs_organic_bag_reference.jpg"
+    flow_clip = OUTPUT_DIR / "google_flow_sample_tomato_omni.mp4"
+
+    filter_complex = (
+        "[0:v]split=2[bag1][bag2];"
+        "color=c=0x5A4A3E:s=1080x1920:d=8:r=60[b1];"
+        "[b1]drawtext=text='01. HOOK - DRY CRACKED SOIL':fontsize=52:fontcolor=white:x=(w-text_w)/2:y=240:box=1:boxcolor=black@0.7:boxborderw=18,"
+        "drawtext=text='Kya aapki mitti bhi thaki aur bejaan ho gayi hai?':fontsize=46:fontcolor=yellow:x=(w-text_w)/2:y=1560:box=1:boxcolor=black@0.85:boxborderw=20,"
+        "drawtext=text='Kya fasal mein woh dam nahi raha?':fontsize=40:fontcolor=white:x=(w-text_w)/2:y=1640:box=1:boxcolor=black@0.8:boxborderw=16[v1];"
+        "color=c=0x3D2C1E:s=1080x1920:d=8:r=60[b2];"
+        "[b2]drawtext=text='02. PROBLEM TO HOPE':fontsize=52:fontcolor=white:x=(w-text_w)/2:y=240:box=1:boxcolor=black@0.7:boxborderw=18,"
+        "drawtext=text='Rasayanik khaad se zameen kamzor hoti jati hai':fontsize=44:fontcolor=coral:x=(w-text_w)/2:y=1560:box=1:boxcolor=black@0.85:boxborderw=20,"
+        "drawtext=text='Ab waqt hai mitti ko phir se jaan dene ka!':fontsize=44:fontcolor=gold:x=(w-text_w)/2:y=1640:box=1:boxcolor=black@0.8:boxborderw=18[v2];"
+        "[bag1]scale=1080:1920:force_original_aspect_ratio=increase,crop=1080:1920,fps=60,trim=duration=8,"
+        "drawtext=text='03. PRODUCT REVEAL':fontsize=52:fontcolor=white:x=(w-text_w)/2:y=200:box=1:boxcolor=0x0E3A1A@0.85:boxborderw=18,"
+        "drawtext=text='B.S. ORGANIC VERMICOMPOST':fontsize=64:fontcolor=gold:x=(w-text_w)/2:y=290:box=1:boxcolor=black@0.8:boxborderw=22,"
+        "drawtext=text='Pesh hai B.S. Organic Vermicompost!':fontsize=46:fontcolor=white:x=(w-text_w)/2:y=1560:box=1:boxcolor=0x0E3A1A@0.9:boxborderw=20,"
+        "drawtext=text='Kenchuo dwara bani prakritik khaad, 100 Percent Chemical Free!':fontsize=36:fontcolor=gold:x=(w-text_w)/2:y=1640:box=1:boxcolor=black@0.85:boxborderw=16[v3];"
+        "[1:v]scale=1080:1920:flags=lanczos,fps=60,trim=duration=8,"
+        "drawtext=text='04. BENEFIT - LIVING SOIL NUTRITION':fontsize=48:fontcolor=white:x=(w-text_w)/2:y=200:box=1:boxcolor=0x0E3A1A@0.85:boxborderw=18,"
+        "drawtext=text='Mitti bane upjaau, jadein hon mazboot...':fontsize=44:fontcolor=white:x=(w-text_w)/2:y=1560:box=1:boxcolor=black@0.85:boxborderw=20,"
+        "drawtext=text='Aur fasal hari-bhari, bharpoor paidawar ke saath!':fontsize=40:fontcolor=gold:x=(w-text_w)/2:y=1640:box=1:boxcolor=black@0.85:boxborderw=16[v4];"
+        "[bag2]scale=1080:1920:force_original_aspect_ratio=increase,crop=1080:1920,fps=60,trim=duration=8,"
+        "drawtext=text='B.S. ORGANIC':fontsize=76:fontcolor=white:x=(w-text_w)/2:y=180:box=1:boxcolor=0x0E3A1A@0.9:boxborderw=24,"
+        "drawtext=text='Prakriti Ke Liye Prakritik':fontsize=44:fontcolor=gold:x=(w-text_w)/2:y=280:box=1:boxcolor=black@0.8:boxborderw=16,"
+        "drawtext=text='Sirf Rs 150 mein 25 Kilo! Aaj hi order karein.':fontsize=42:fontcolor=white:x=(w-text_w)/2:y=1460:box=1:boxcolor=black@0.85:boxborderw=18,"
+        "drawtext=text='Rs 150 / 25 kg':fontsize=92:fontcolor=gold:x=(w-text_w)/2:y=1580:box=1:boxcolor=0x0E3A1A@0.95:boxborderw=28,"
+        "drawtext=text='100 Percent CHEMICAL FREE':fontsize=46:fontcolor=white:x=(w-text_w)/2:y=1710:box=1:boxcolor=black@0.85:boxborderw=16[v5];"
+        "[v1][v2][v3][v4][v5]concat=n=5:v=1:a=0[vout]"
+    )
+
+    flow_input = str(flow_clip) if flow_clip.exists() else str(bag_ref)
+    cmd = [
+        ffmpeg,
+        "-y",
+        "-loop", "1", "-i", str(bag_ref),
+        "-i", flow_input,
+        "-f", "lavfi", "-i", "anullsrc=r=48000:cl=stereo",
+        "-filter_complex", filter_complex,
+        "-map", "[vout]",
+        "-map", "2:a",
+        "-c:v", "libx264",
+        "-preset", "fast",
+        "-crf", "19",
+        "-pix_fmt", "yuv420p",
+        "-r", "60",
+        "-c:a", "aac",
+        "-t", "40.0",
+        str(out_master),
+    ]
+
+    subprocess.run(cmd, check=True, capture_output=True)
+    return out_master
+
+
 def build_story_master(story_id: str, sample_if_missing: bool = True) -> Path:
     """Finds clips for story_id, stitches them into a 40s Master Short, and extracts best thumbnail."""
     from prompt_manager import PromptManager
     pm = PromptManager()
+
+    if story_id in ("bs_organic_master_commercial_40s", "bs_organic_commercial_40s"):
+        out_master = OUTPUT_DIR / f"{story_id}_master_40s.mp4"
+        print(f"Building official 40.0s Commercial Master for {story_id}...")
+        build_commercial_40s_master(out_master)
+        gen = ThumbnailGenerator()
+        best_thumb, info = gen.get_best_thumbnail(out_master)
+        print(f"Hero Thumbnail: {best_thumb.name} (Score: {info.get('score', 0)})")
+        return out_master
 
     story_items = [it for it in pm.items if it.get("story_id") == story_id]
     char_name = story_items[0].get("character_name", "B.S Organic Character") if story_items else "Tommy Tomato"

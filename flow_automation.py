@@ -386,7 +386,7 @@ class GoogleFlowAutomation:
     def extract_and_download_video(self, page: Page, prompt_item: Dict[str, Any], direct_url: Optional[str] = None, excluded_urls: Optional[Set[str]] = None) -> Optional[Path]:
         """Detect and download completed video either via direct URL, download button, or video element src."""
         prompt_text = prompt_item.get("prompt", "")
-        target_name = self.downloader.generate_filename(prompt_text=prompt_text)
+        target_name = prompt_item.get("output_file") or self.downloader.generate_filename(prompt_text=prompt_text)
         excluded = excluded_urls or set()
 
         # 0. Direct captured URL from network response listener
