@@ -25,21 +25,23 @@
     },
     {
       "id": "bs_organic_gold",
-      "name": "B.S Organic Living Soil Pack",
-      "tagline": "Pure 100% Organic Vermicompost & Black Gold Soil",
+      "name": "B.S. Organic Vermicompost Bag (Official)",
+      "tagline": "Pure 100% Chemical-Free Neem & Cow-Urine Enriched Vermicompost",
       "state": "Pan-India (Universal)",
-      "category": "Hero Mascot",
+      "category": "Hero Product",
+      "reference_image": "assets/bs_organic_bag_reference.jpg",
       "visual_identity": {
-        "packaging": "Premium eco-friendly kraft paper and matte emerald pouch with clean gold leaf leaf motif and organic certification badges",
-        "content": "Rich, jet-black crumbly vermicompost that looks like moist dark coffee grounds, glowing with golden microbiological specks",
-        "setting": "Studio farm table with soft mist, morning sunlight, fresh dew drops on nearby clover leaves"
+        "packaging": "Glossy forest-green woven polypropylene agricultural sack tied tightly at the top with white string, covered in scattered white and light-green leaf silhouettes, with a vertical white strip on the left border reading 'B.S. Organic VERMICOMPOST'",
+        "front_branding": "Large central white cloud-shaped logo with bold dark-green text 'B.S. Organic' and a green leaf icon, top-right '100% CHEMICAL FREE ✓' mark, horizontal white Hindi banner 'केंचुओ द्वारा निर्मित प्राकृतिक खाद', bold white text 'VERMICOMPOST', Hindi tagline 'प्रकृति के लिए प्राकृतिक', and bottom circular speech bubble 'नीम व गाय मूत्र युक्त'",
+        "content": "Rich, velvety dark-black crumbly vermicompost resembling moist dark coffee grounds, teeming with golden microbiological nutrients and airy earthworm castings",
+        "setting": "Lush fertile Indian farmland in golden-hour sunlight, standing proudly on rich dark brown loamy soil"
       },
       "transformation": {
-        "before_organic": "Dead grey compacted dirt blocks, barren and dusty",
+        "before_organic": "Dead, grey, cracked compacted chemical dirt blocks, barren and dusty",
         "after_organic": "Instant transformation into porous, moisture-retaining, dark spongy black loam teeming with beneficial microbes"
       },
-      "image_prompt_9_16": "Vertical 9:16, commercial hero portrait of B.S Organic Vermicompost: a premium rustic kraft paper fertilizer pouch with deep emerald accents standing beside a magnificent heap of moist, black crumbly organic vermicompost texture resembling premium fine dark loam. Tiny vibrant green seedlings sprout directly from the compost mound. Gentle warm morning rays filtering through mist, dew drops glistening. Photorealistic 3D commercial render, tactile crumbly soil macro details, shallow depth of field, 8k resolution, no text, no captions, no watermark.",
-      "video_prompt_hook_8s": "Vertical 9:16, macro slow motion: Hands gently pour dark, velvety crumbly B.S Organic vermicompost around thirsty plant roots in soft soil. The soil immediately turns deep rich black, absorbing moisture with a soft satisfying earthy whoosh. Golden microbiological glow radiates. No text, no logos."
+      "image_prompt_9_16": "Vertical 9:16, photoreal premium agriculture commercial hero shot: The official B.S. Organic vermicompost bag (exact reference: dark-green glossy woven poly sack tied at top with white string, scattered leaf silhouettes, central white cloud logo reading 'B.S. Organic' with leaf icon, '100% CHEMICAL FREE ✓' mark, white Hindi banner 'केंचुओ द्वारा निर्मित प्राकृतिक खाद', bold white 'VERMICOMPOST', and round badge 'नीम व गाय मूत्र युक्त'). Standing proudly on rich, moist dark-brown crumbly vermicompost soil in an Indian farm field. Macro slow-motion of dark fluffy organic compost spilling softly beside the bag with golden sunlight god-rays and sparkling nutrient particles. Hyper-realistic 8K commercial photography, shallow depth of field, no text, no watermark, no captions.",
+      "video_prompt_hook_8s": "Vertical 9:16, slow-motion commercial hero reveal: 180-degree smooth orbit around the official dark-green glossy B.S. Organic vermicompost bag standing on dark loamy soil. Golden-hour sunlight creates warm lens flare and glowing nutrient sparkles around the bag as dark crumbly compost spills softly onto the earth. ASMR soft compost cascade whoosh and gentle acoustic folk chord. No people, no hands, no watermark."
     },
     {
       "id": "tommy_tomato",
