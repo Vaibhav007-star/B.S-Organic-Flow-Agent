@@ -73,10 +73,10 @@ class GeminiStoryEngine:
         # Build prompt for Gemini
         system_instruction = (
             "You are the Lead Creative Director & AI Cinematographer for 'B.S Organic', a premium organic vermicompost and manure brand. "
-            "Your mission is to write a high-velocity, emotional, visually stunning 40.0-second short-form video story "
-            "consisting of EXACTLY 5 sequential 8.0-second beats for vertical 9:16 video generation in Google Flow (Veo). "
-            "The style is 3D Pixar-DreamWorks animation, Octane render, warm cinematic sunlight, tactile organic details. "
-            "Every story must highlight the dramatic 'Before vs. After' transformation caused by B.S Organic Vermicompost. "
+            "Your mission is to write a high-velocity, emotional, visually stunning 40.0-second short-form video story titled 'किसान से एक विनती' "
+            "consisting of EXACTLY 5 sequential 8.0-second beats for vertical 9:16 video generation in Google Flow (Veo / Gemini Omni 1.2). "
+            "The style is 3D Pixar-DreamWorks animated crop mascot integrated into photorealistic Indian farm rows with an authentic Indian farmer. "
+            "Every story follows the crop's heartfelt emotional appeal to the farmer, subterranean root cross-sections, B.S Organic nutrition, and bumper harvest. "
             "Output MUST be strict JSON matching the requested schema."
         )
 
@@ -84,15 +84,15 @@ class GeminiStoryEngine:
 Character Context:
 {json.dumps(ctx, indent=2, ensure_ascii=False)}
 
-Theme / Special Setting: {theme_hint or 'Standard regional farm / terrace garden transformation'}
+Theme / Special Setting: {theme_hint or 'Authentic rural Indian farm rows with farmer'}
 
 Story Requirements:
 1. Exactly 5 beats (each representing an 8.0-second clip, totaling 40.0 seconds).
-   - Beat 1 (0-8s): The Struggle. Character wilting/sickly in dry, hard, cracked chemical soil.
-   - Beat 2 (8-16s): The Rescue. Captain Wiggly (cute pink earthworm) arrives and pours rich black crumbly B.S Organic vermicompost.
-   - Beat 3 (16-24s): Underground Magic. Split/macro subterranean view of roots eagerly drinking dark microbial nutrition and expanding.
-   - Beat 4 (24-32s): The Super-Bloom / Grand Harvest. Rapid time-lapse surge into giant, juicy, glowing produce with vibrant colors and joyful expressions.
-   - Beat 5 (32-40s): Hero Brand Celebration & Infinite Loop. Celebratory pose with B.S Organic pack, ending on a match-frame loop.
+   - Beat 1 (0-8s): The Hook / Peeking Out. Crop mascot peeks out of dry cracked soil, rubbing sleepy eyes, calling out to farmer (अरे किसान भैया!).
+   - Beat 2 (8-16s): The Struggle / Underground Cross-Section. Split view: Crop folds hands in Namaste pleading for natural care above ground, while underground cross-section shows roots suffocating in hard compacted chemical soil.
+   - Beat 3 (16-24s): B.S Organic Nutrition. Hero reveal of authentic dark green B.S Organic vermicompost bag, dark crumbly manure mixes into soil, golden glowing nutrients surge into roots.
+   - Beat 4 (24-32s): The Transformation / Tears of Gratitude. Rapid healthy surge into massive juicy produce, mascot weeping tears of joy with hand on heart looking at the smiling Indian farmer.
+   - Beat 5 (32-40s): Bumper Harvest Celebration & Brand CTA. Mascot celebrating atop overflowing rustic wicker harvest baskets with hero B.S Organic bag on rich dark soil, with clean bold text '₹150 / 25 kg'.
 2. In each beat, write:
    - 'title': Short descriptive title.
    - 'timing': Exact seconds range.

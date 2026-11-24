@@ -100,11 +100,11 @@ class CharacterManager:
                 "style_anchor": self.default_style,
                 "negative_constraints": self.negative_prompt,
                 "beats_structure": [
-                    {"beat": 1, "timing": "0.0s - 8.0s", "phase": "The Struggle / Problem", "focus": "Character wilting in dry, hard chemical soil"},
-                    {"beat": 2, "timing": "8.0s - 16.0s", "phase": "The Rescue / Arrival", "focus": "Captain Wiggly arrives with B.S Organic Vermicompost"},
-                    {"beat": 3, "timing": "16.0s - 24.0s", "phase": "The Underground Magic", "focus": "Macro root view absorbing dark organic worm-cast nutrition"},
-                    {"beat": 4, "timing": "24.0s - 32.0s", "phase": "The Grand Bloom / Harvest", "focus": "Rapid time-lapse explosion into giant glowing healthy fruit/flower/crop"},
-                    {"beat": 5, "timing": "32.0s - 40.0s", "phase": "Hero Branding & Loop", "focus": "Joyful celebration around B.S Organic Vermicompost pack, seamless loop back"},
+                    {"beat": 1, "timing": "0.0s - 8.0s", "phase": "The Hook / Peeking Out", "focus": "Crop mascot peeking out of dry cracked soil, rubbing eyes and calling out to farmer (अरे किसान भैया!)"},
+                    {"beat": 2, "timing": "8.0s - 16.0s", "phase": "The Struggle / Underground Cross-Section", "focus": "Split view: Namaste pleading above ground while roots struggle in hard compacted chemical soil below"},
+                    {"beat": 3, "timing": "16.0s - 24.0s", "phase": "The Solution / B.S Organic Nutrition", "focus": "Dark green B.S Organic bag reveal, dark crumbly vermicompost mixes in, golden glowing nutrients swirl into roots"},
+                    {"beat": 4, "timing": "24.0s - 32.0s", "phase": "The Transformation / Tears of Joy", "focus": "Rapid time-lapse surge into bumper growth, mascot crying tears of joy with hand on heart looking at smiling farmer"},
+                    {"beat": 5, "timing": "32.0s - 40.0s", "phase": "Bumper Harvest Celebration & CTA", "focus": "Mascot celebrating atop overflowing wicker baskets with B.S Organic bag and ₹150 / 25 kg CTA"},
                 ],
             },
         }
@@ -117,50 +117,50 @@ class CharacterManager:
 
         name = c["name"]
         body = c["visual_identity"].get("body", "3D animated plant character")
-        setting = c["visual_identity"].get("setting", "organic garden bed")
+        setting = c["visual_identity"].get("setting", "rural Indian farm rows")
         before = c["transformation"]["before_organic"]
         after = c["transformation"]["after_organic"]
 
         beats = [
             {
                 "beat": 1,
-                "title": f"{name}'s Struggle in Chemical Soil",
+                "title": f"{name}'s Hook: Peeking Out of Dry Soil",
                 "timing": "0.0s - 8.0s",
-                "action": f"{name} ({body}) sitting sadly in dry, cracked, yellowish-grey clay soil. {before}. Drooping with a sad frown as harsh sun glares down.",
+                "action": f"{name} ({body}) peeking out of dry, pale, cracked soil crust in {setting}, rubbing large sleepy cartoon eyes, looking up earnestly at camera appealing to the farmer with tiny reaching hands. {before}.",
                 "audio": "Close-mic ASMR dry wind whistle, brittle soil crack, weak sad sigh. No music.",
-                "camera": "Locked 45-degree close-up portrait, warm dry sunlight, shallow depth of field.",
+                "camera": "Ground-level low-angle push-in, warm early morning sunrise god-rays, soft shallow depth of field.",
             },
             {
                 "beat": 2,
-                "title": f"Captain Wiggly Delivers B.S Organic Gold",
+                "title": f"{name}'s Plea & Underground Struggle",
                 "timing": "8.0s - 16.0s",
-                "action": f"Captain Wiggly the cute pink earthworm in burlap hat pops up beside {name}, waving cheerfully! Hands gently pour dark, velvety crumbly B.S Organic vermicompost around the base, creating a moist black nutrient bed.",
-                "audio": "Cheerful earthy pop, soft velvety compost whoosh, refreshing water droplet splash. No music.",
-                "camera": "Dynamic macro tracking shot of dark crumbly compost cascading softly around the base.",
+                "action": f"Split-level subterranean cross-section: Top half shows {name} standing on dry earth with hands folded in emotional Namaste pleading gesture; bottom half shows macro underground soil with hard compacted earth suffocating thin struggling white roots.",
+                "audio": "ASMR muffled dry root stress, mournful wind chime, emotional plea murmur. No music.",
+                "camera": "Split-level subterranean cross-section camera, dramatic high-contrast sunlight above and dark dense soil below.",
             },
             {
                 "beat": 3,
-                "title": "Underground Microbial Feeding Magic",
+                "title": "B.S Organic Vermicompost Nutrition & Root Magic",
                 "timing": "16.0s - 24.0s",
-                "action": f"Split underground macro view: White root hairs of {name} drink deeply from moist, aerated dark vermicompost. Roots glow with bright golden biological energy, expanding and branching effortlessly through spongy soil.",
-                "audio": "ASMR soil drinking squelch, soft underground bubbling hum, root stretch clicks. No music.",
-                "camera": "Split-level cross-section camera, warm volumetric subterranean backlight.",
+                "action": f"Hero reveal of authentic dark green woven B.S Organic Vermicompost bag standing on rich soil. Dark, crumbly organic vermicompost cascades around {name}'s base. Underground split-view shows glowing golden biological nutrients swirling into roots which drink deeply and expand effortlessly.",
+                "audio": "Velvety compost cascade whoosh, subterranean nutrient bubbling hum, root hydration clicks. No music.",
+                "camera": "Slow 180-degree orbit around bag and crop, golden hour sparkle particles, subterranean macro lighting.",
             },
             {
                 "beat": 4,
-                "title": f"{name}'s Super-Bloom & Transformation",
+                "title": f"{name}'s Super-Growth & Gratitude",
                 "timing": "24.0s - 32.0s",
-                "action": f"Rapid time-lapse bloom: Nutrients surge up the stem! {name} swells with vibrant energy into {after}. Leaves turn lush mirror-gloss emerald; skin/petals radiate pure color, face beaming with a huge joyful smile!",
-                "audio": "Snappy stem stretch pop, crisp leaf unfold, triumphant harmonious chime. No music.",
-                "camera": "Slow cinematic orbit around the radiant, transformed character, golden hour rim light.",
+                "action": f"Rapid time-lapse surge of healthy growth: {name} swells with vibrant energy into {after}. Leaves turn lush mirror-gloss emerald with sparkling dew drops. Mascot beams with tears of joy, hand on heart, looking affectionately at an Indian farmer in kurta and gamchha smiling in soft blurred background.",
+                "audio": "Snappy stem surge pop, crisp leaf unfold, triumphant harmonious chime. No music.",
+                "camera": "Dynamic low-angle pedestal shot rising with crop growth, golden hour backlighting, cinematic bokeh.",
             },
             {
                 "beat": 5,
-                "title": "B.S Organic Hero Celebration & Loop Reset",
+                "title": "Bumper Harvest Celebration & Brand CTA",
                 "timing": "32.0s - 40.0s",
-                "action": f"Wide celebratory shot: {name} and Captain Wiggly pose proudly beside the pristine B.S Organic Vermicompost pack in {setting}. Character gives a joyful thumbs-up. Soft match-dissolve reset frame for an infinite short loop.",
-                "audio": "Joyful rustle, gentle garden wind chime, clean organic loop breath. No music.",
-                "camera": "Cinematic wide hero reveal, soft morning mist, pristine bokeh background.",
+                "action": f"Triumphant harvest celebration: {name} happily waving atop overflowing rustic wicker harvest baskets filled with bumper crop in {setting}. Dark green woven B.S Organic bag stands proudly in center on rich dark soil with golden sparkles. Clean bold text: '₹150 / 25 kg'.",
+                "audio": "Joyful rustle, harvest celebration chimes, crisp clean finish breath. No music.",
+                "camera": "Wide panoramic pull-back and crane down to hero product bag, warm sunset glow over fertile farm.",
             },
         ]
         return beats

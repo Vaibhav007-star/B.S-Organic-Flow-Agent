@@ -1,1 +1,20 @@
-# Queue your video prompts here (one prompt per line)
+# ==============================================================================
+# B.S ORGANIC AUTONOMOUS VIDEO PIPELINE — MASTER PROMPTS QUEUE
+# Style: 3D Pixar Crop Character + Photoreal Indian Farm ("किसान से एक विनती")
+# Format: Vertical 9:16 Full HD (1080x1920 @ 60fps) | Engine: Google Flow Omni 1.2
+# ==============================================================================
+
+# Beat 1 (0-8s) | The Hook: Peeking Out of Dry Soil & Greeting the Farmer
+Vertical 9:16, 3D Pixar style cute animated crop seedling mascot peeking out of dry pale cracked farm soil, large expressive blinking cartoon eyes, rosy cheeks, tiny green gardener shoes, rubbing eyes and looking up earnestly at camera, authentic rural Indian farm rows background, early morning sunrise god-rays, warm cinematic lighting, ultra-detailed soil crust, photorealistic agriculture backdrop, no text, no watermark, 8k render
+
+# Beat 2 (8-16s) | The Struggle: Underground Cross-Section & Pleading for Natural Care
+Vertical 9:16, split-level subterranean cross-section view of authentic Indian farm soil, top half shows 3D cute animated crop character standing with hands folded in emotional Namaste pleading gesture, bottom half shows macro underground soil cross-section with dry compacted earth and thin struggling roots, high-contrast dramatic cinematic lighting, photoreal soil texture, 3D Pixar character, no text, no watermark
+
+# Beat 3 (16-24s) | The Solution: B.S Organic Reveal & Subterranean Nutrient Surge
+Vertical 9:16, slow orbit hero shot of dark green woven poly vermicompost bag standing on rich dark fertile farm soil in warm golden hour light, macro slow-motion of dark fluffy crumbly organic vermicompost spilling into soil, glowing golden nutrient light particles swirling into thick healthy underground roots, cinematic agricultural commercial, 3D animation accents, no text, no watermark
+
+# Beat 4 (24-32s) | The Transformation: Super-Growth & Tears of Gratitude
+Vertical 9:16, dynamic low-angle shot of 3D Pixar animated crop character bursting with joyful tears and hand on heart, surrounded by tall lush vibrant green healthy plants and sparkling dew drops, authentic Indian farmer in kurta and gamchha smiling happily in soft blurred background, golden hour backlighting, cinematic agricultural victory, no text, no watermark
+
+# Beat 5 (32-40s) | Bumper Harvest Celebration & Hero Brand CTA
+Vertical 9:16, triumphant harvest celebration, 3D cute crop mascot happily waving atop overflowing rustic wicker harvest baskets filled with fresh vegetables, authentic Indian farm sunset backdrop, dark green woven B.S Organic bag in center on rich soil with golden sparkle particles, cinematic commercial closing, 8k render, no text, no watermark
