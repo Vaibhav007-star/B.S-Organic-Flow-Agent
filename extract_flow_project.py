@@ -15,14 +15,14 @@ import json
 logging.basicConfig(level=logging.INFO, format="[%(asctime)s] [%(levelname)s] %(message)s")
 logger = logging.getLogger("extract_flow")
 
-PROJECT_URL = "https://flow.google.com/project/16547eaf-6702-4530-acc9-649984887257"
+PROJECT_URL = ""
 
 CLIPS_INFO = [
-    {"index": 1, "keyword": "Blade slicing lime on board", "out_name": "video_clip_1_1cut.mp4"},
-    {"index": 2, "keyword": "Blades slicing lime on", "out_name": "video_clip_2_25cuts.mp4"},
-    {"index": 3, "keyword": "Lime shatters into cu", "out_name": "video_clip_3_100cuts.mp4"},
-    {"index": 4, "keyword": "Lime disintegrating in", "out_name": "video_clip_4_1000cuts.mp4"},
-    {"index": 5, "keyword": "Lime disintegrates int", "out_name": "video_clip_5_25000cuts.mp4"},
+    {"index": 1, "keyword": "", "out_name": "video_clip_1.mp4"},
+    {"index": 2, "keyword": "", "out_name": "video_clip_2.mp4"},
+    {"index": 3, "keyword": "", "out_name": "video_clip_3.mp4"},
+    {"index": 4, "keyword": "", "out_name": "video_clip_4.mp4"},
+    {"index": 5, "keyword": "", "out_name": "video_clip_5.mp4"},
 ]
 
 

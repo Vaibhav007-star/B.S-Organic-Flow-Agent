@@ -257,7 +257,7 @@ def purge_raw_clips(clip_paths: List[Path]) -> None:
 
 def auto_merge_sequence_from_state(
     target_count: int = 5,
-    output_filename: str = "cut_count_40s_lime_master.mp4",
+    output_filename: str = "master_short.mp4",
     subtitles: bool = True,
 ) -> Optional[Path]:
     """Inspects prompts_state.json. If all clips in a sequence are completed,
