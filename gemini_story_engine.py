@@ -23,7 +23,7 @@ class GeminiStoryEngine:
 
     def __init__(self, api_key: Optional[str] = None, model: Optional[str] = None):
         self.api_key = api_key or GEMINI_API_KEY or os.getenv("GEMINI_API_KEY", "")
-        self.model = model or GEMINI_MODEL or "gemini-2.5-flash"
+        self.model = model or GEMINI_MODEL or "gemini-3.5-flash"
         self.cm = CharacterManager()
         self.client = None
         self._init_client()
