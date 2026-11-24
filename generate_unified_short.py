@@ -23,7 +23,46 @@ from build_story_short import build_story_master, render_sample_preview_short
 ASSET_BAG_REF = BASE_DIR / "assets" / "bs_organic_bag_reference.jpg"
 
 
-def run_character_story_pipeline(character_id: str, theme_hint: Optional[str] = None, render_sample: bool = False) -> Dict[str, Any]:
+def execute_flow_generation(story_id: str, max_clips: int = 5, headless: bool = False) -> Dict[str, Any]:
+    """Drives Google Flow automation to generate clips for a story, and then stitches them into a 40s Master Short."""
+    from browser_manager import BrowserManager
+    from downloader import VideoDownloader
+    from flow_automation import GoogleFlowAutomation
+    from prompt_manager import PromptManager
+    from character_manager import CharacterManager
+
+    pm = PromptManager()
+    bm = BrowserManager(headless=headless)
+    dl = VideoDownloader()
+    automation = GoogleFlowAutomation(browser_manager=bm, prompt_manager=pm, downloader=dl)
+
+    print("\n" + "=" * 65)
+    print(f"🚀 LAUNCHING GOOGLE FLOW GENERATION FOR STORY: [{story_id}]")
+    print(f"Browser mode: {'Headless' if headless else 'Visible'}")
+    print("=" * 65)
+
+    try:
+        summary = automation.run_queue(max_items=max_clips)
+        print(f"Generation run completed. Summary: {summary}")
+    finally:
+        bm.close()
+
+    # Check if clips are ready to stitch
+    cm = CharacterManager()
+    status = cm.check_story_completion(story_id, pm=pm)
+    print(f"\nStory Status for [{story_id}]: {status['completed']}/{status['total_clips']} clips ready.")
+
+    if status["ready_to_stitch"]:
+        print(f"🎉 All {status['completed']} clips downloaded! Stitching 40-Second Master Short...")
+        out_master = build_story_master(story_id, sample_if_missing=False)
+        print(f"Master Short Created: {out_master.name}")
+        return {"story_id": story_id, "status": "completed", "master_video": str(out_master)}
+    else:
+        print(f"Waiting for remaining clips ({status['pending']} pending, {status['failed']} failed).")
+        return {"story_id": story_id, "status": "in_progress", "clips_ready": status["completed"]}
+
+
+def run_character_story_pipeline(character_id: str, theme_hint: Optional[str] = None, render_sample: bool = False, generate_flow: bool = False) -> Dict[str, Any]:
     """Generates a complete 5-beat story using Gemini, queues prompts for Google Flow,
 
     and optionally renders the 40-second master preview short.
@@ -50,8 +89,11 @@ def run_character_story_pipeline(character_id: str, theme_hint: Optional[str] = 
     print(f"Queued Prompt IDs: {', '.join(res['queued_prompt_ids'])}")
     print(f"\nSocial Caption:\n{res['caption']}\n")
 
-    if render_sample:
-        print("Step 2: Rendering 40.0s Master Short Preview via FFmpeg...")
+    if generate_flow:
+        print("\nStep 2: Starting Google Flow Automation to Generate 5 Video Clips...")
+        execute_flow_generation(res["story_id"], max_clips=5, headless=False)
+    elif render_sample:
+        print("\nStep 2: Rendering 40.0s Master Short Preview via FFmpeg...")
         out_video = OUTPUT_DIR / res["target_master_video"]
         render_sample_preview_short(out_video, character_name=c["name"])
         print(f"Master Short Ready: {out_video.name}")
@@ -59,14 +101,14 @@ def run_character_story_pipeline(character_id: str, theme_hint: Optional[str] = 
 
     print("=" * 65)
     print("Next Steps:")
-    print(f"1. Generate clips on Google Flow: python main.py --run --limit 5")
+    print(f"1. Generate clips on Google Flow: python generate_unified_short.py --character {c['id']} --generate-flow")
     print(f"2. Check status: python -c \"from character_manager import CharacterManager; print(CharacterManager().check_story_completion('{res['story_id']}'))\"")
     print(f"3. Stitch final short: python build_story_short.py --story-id {res['story_id']}")
     print("=" * 65 + "\n")
     return res
 
 
-def run_commercial_pipeline(render_sample: bool = False) -> Dict[str, Any]:
+def run_commercial_pipeline(render_sample: bool = False, generate_flow: bool = False) -> Dict[str, Any]:
     """Queues the official 40-second photoreal B.S Organic bag commercial (No characters/people)."""
     from prompt_manager import PromptManager
     pm = PromptManager()
@@ -83,7 +125,10 @@ def run_commercial_pipeline(render_sample: bool = False) -> Dict[str, Any]:
     print(f"Found {len(story_items)} beats already queued for {story_id}.")
 
     out_video = OUTPUT_DIR / f"{story_id}_master_40s.mp4"
-    if render_sample:
+    if generate_flow:
+        print("\nStarting Google Flow Video Generation for Commercial...")
+        execute_flow_generation(story_id, max_clips=5, headless=False)
+    elif render_sample:
         print("\nRendering 40.0s Master Commercial Video...")
         render_sample_preview_short(out_video, character_name="B.S. Organic Official Bag")
         print(f"Master Commercial Ready: {out_video.name}")
@@ -97,6 +142,7 @@ def main():
     parser.add_argument("--commercial", action="store_true", help="Generate the official photoreal B.S Organic bag commercial")
     parser.add_argument("--theme", type=str, default=None, help="Thematic setting hint for Gemini story")
     parser.add_argument("--render-sample", action="store_true", help="Render a 40.0s sample video via FFmpeg immediately")
+    parser.add_argument("--generate-flow", action="store_true", help="Launch Google Flow browser automation to generate and download real Veo video clips")
     parser.add_argument("--list-characters", action="store_true", help="List all 33 regional characters")
     parser.add_argument("--state", type=str, default=None, help="Filter characters by state")
     args = parser.parse_args()
@@ -113,12 +159,12 @@ def main():
         return
 
     if args.commercial:
-        run_commercial_pipeline(render_sample=args.render_sample)
+        run_commercial_pipeline(render_sample=args.render_sample, generate_flow=args.generate_flow)
     elif args.character:
-        run_character_story_pipeline(args.character, theme_hint=args.theme, render_sample=args.render_sample)
+        run_character_story_pipeline(args.character, theme_hint=args.theme, render_sample=args.render_sample, generate_flow=args.generate_flow)
     else:
         # Default run with Tommy Tomato
-        run_character_story_pipeline("tommy_tomato", theme_hint=args.theme, render_sample=args.render_sample)
+        run_character_story_pipeline("tommy_tomato", theme_hint=args.theme, render_sample=args.render_sample, generate_flow=args.generate_flow)
 
 
 if __name__ == "__main__":
