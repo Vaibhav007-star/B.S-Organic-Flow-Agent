@@ -34,12 +34,16 @@ class CharacterManager:
             self.characters = self.data.get("characters", [])
         return self.characters
 
-    def list_characters(self, category: Optional[str] = None) -> List[Dict[str, Any]]:
-        """Return list of characters, optionally filtered by category."""
-        if not category:
-            return self.characters
-        cat_lower = category.strip().lower()
-        return [c for c in self.characters if cat_lower in c.get("category", "").lower()]
+    def list_characters(self, category: Optional[str] = None, state: Optional[str] = None) -> List[Dict[str, Any]]:
+        """Return list of characters, optionally filtered by category and/or state."""
+        results = self.characters
+        if category:
+            cat_lower = category.strip().lower()
+            results = [c for c in results if cat_lower in c.get("category", "").lower()]
+        if state:
+            st_lower = state.strip().lower()
+            results = [c for c in results if st_lower in c.get("state", "").lower()]
+        return results
 
     def get_character(self, character_id: str) -> Optional[Dict[str, Any]]:
         """Retrieve a single character by ID."""

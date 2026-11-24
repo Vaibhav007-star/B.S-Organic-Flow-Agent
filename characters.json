@@ -7,6 +7,7 @@
       "id": "captain_wiggly",
       "name": "Captain Wiggly (Kenchua Bro)",
       "tagline": "The Soil Super-Chef & Organic Vermicompost Mascot",
+      "state": "Pan-India (Universal)",
       "category": "Hero Mascot",
       "visual_identity": {
         "species": "Red Wiggler Earthworm (Eisenia fetida)",
@@ -26,6 +27,7 @@
       "id": "bs_organic_gold",
       "name": "B.S Organic Living Soil Pack",
       "tagline": "Pure 100% Organic Vermicompost & Black Gold Soil",
+      "state": "Pan-India (Universal)",
       "category": "Hero Mascot",
       "visual_identity": {
         "packaging": "Premium eco-friendly kraft paper and matte emerald pouch with clean gold leaf leaf motif and organic certification badges",
@@ -43,24 +45,26 @@
       "id": "tommy_tomato",
       "name": "Tommy Tomato",
       "tagline": "From Wilting Vine to Juicy Ruby Giant",
+      "state": "Pan-India / Terrace & Kitchen Garden",
       "category": "Vegetable",
       "visual_identity": {
-        "body": "Chubby, perfectly round 3D animated tomato character with glossy, flawless ruby-red skin, bright cheerful cartoon eyes, and a cute leaf calyx crown for hair",
+        "body": "Chubby, perfectly round 3D animated tomato character with glossy ruby-red skin, bright cheerful cartoon eyes, and a cute leaf calyx crown for hair",
         "colors": ["Vibrant Crimson Red", "Emerald Leaf Green", "Glistening Dew Gold"],
         "props": "Clusters of baby tomato friends peeking from vines behind him",
         "setting": "Lush home terrace kitchen garden wooden planter box filled with dark vermicompost"
       },
       "transformation": {
-        "before_organic": "Small, dull orange-yellow skin with wrinkles, droopy leaf crown, sad frown, potted in cracked dry grey chemical soil",
-        "after_organic": "Giant, plump, mirror-gloss ruby red, laughing cheerfully on sturdy emerald vine heavy with juicy ripe fruit clusters"
+        "before_organic": "Small, dull orange-yellow skin with wrinkles, droopy leaf crown, sad frown in cracked dry grey chemical soil",
+        "after_organic": "Giant, plump, mirror-gloss ruby red, laughing cheerfully on sturdy emerald vine heavy with ripe fruit clusters"
       },
-      "image_prompt_9_16": "Vertical 9:16, 3D animated Pixar-style character portrait of Tommy Tomato. Plump, perfectly round tomato character with mirror-gloss deep ruby-red skin and glistening natural dew drops. Adorable big expressive cartoon eyes and a proud joyful smile, with a spiky fresh emerald-green leafy calyx haircut. Standing happily in a terrace wooden garden planter bed filled with rich, moist dark brown vermicompost. Lush green tomato vines with glowing yellow blossoms in the blurred background. Warm golden hour rim lighting, tactile fruit texture, 8k render, no text, no watermark.",
+      "image_prompt_9_16": "Vertical 9:16, 3D animated Pixar character portrait of Tommy Tomato. Plump, perfectly round tomato character with mirror-gloss deep ruby-red skin and glistening natural dew drops. Adorable big expressive cartoon eyes and a proud joyful smile, with a spiky fresh emerald-green leafy calyx haircut. Standing happily in a terrace wooden garden planter bed filled with rich, moist dark brown vermicompost. Lush green tomato vines with glowing yellow blossoms in the blurred background. Warm golden hour rim lighting, tactile fruit texture, 8k render, no text, no watermark.",
       "video_prompt_hook_8s": "Vertical 9:16, 3D animated time-lapse: Sad pale droopy Tommy Tomato sits in dry cracked dirt. Suddenly dark B.S Organic vermicompost feeds his base. Water and nutrients surge up the stem; Tommy swells rapidly, skin turns incandescent ruby red with a cheerful gasp! ASMR soil drink and crisp leaf pop. No text, no captions."
     },
     {
       "id": "chintu_carrot",
       "name": "Chintu Carrot",
       "tagline": "The Deep-Rooting Soil Explorer",
+      "state": "Punjab & Haryana & Rajasthan",
       "category": "Vegetable",
       "visual_identity": {
         "body": "Cute elongated tapering cartoon carrot character with vivid neon-orange skin, soft horizontal root ridges, big curious eyes and a bushy emerald feather top-knot",
@@ -79,9 +83,10 @@
       "id": "chilli_chacha",
       "name": "Chilli Chacha",
       "tagline": "The Fiery Spicy Organic Protector",
+      "state": "Andhra Pradesh & Telangana & Gujarat",
       "category": "Vegetable",
       "visual_identity": {
-        "body": "Slim, dynamic, curved hot pepper character, half fiery glossy red and half crisp emerald green, wearing a twirly curved stem like an elegant handlebar mustache, mischievous wink",
+        "body": "Slim, dynamic, curved hot pepper character, half fiery glossy red and half crisp emerald green, wearing a twirly curved stem like an elegant handlebar mustache",
         "colors": ["Fiery Gloss Crimson", "Glossy Lime Green", "Earthy Black Loam"],
         "props": "Tiny flaming aura or spicy spark hovering above his stem tip",
         "setting": "Organic vegetable patch under bright sunny sky"
@@ -97,6 +102,7 @@
       "id": "potato_pandu",
       "name": "Potato Pandu",
       "tagline": "The Underground Multiplier",
+      "state": "Uttar Pradesh & West Bengal & Punjab",
       "category": "Vegetable",
       "visual_identity": {
         "body": "Chubby, lovable golden-brown potato character with cute dimples, sleepy friendly smile, and gentle rosy cheeks",
@@ -112,9 +118,238 @@
       "video_prompt_hook_8s": "Vertical 9:16, underground macro view: In soft dark B.S Organic vermicompost, Potato Pandu chuckles warmly as tiny root runners rapidly sprout into a dozen smooth golden baby potatoes around him. ASMR soft earthen shift and bubbling pop. No text, no captions."
     },
     {
+      "id": "nashik_pyaz",
+      "name": "Nashik Lal Pyaz (Ruby Onion)",
+      "tagline": "The Multi-Layered Kitchen Champion",
+      "state": "Maharashtra",
+      "category": "Vegetable",
+      "visual_identity": {
+        "body": "Sturdy, tear-drop bulb character with glistening layers of vibrant magenta-purple papery skin, proud cheerful smile, and sprightly green shoots for a top crown",
+        "colors": ["Vivid Magenta Purple", "Crisp Spring Green", "Dark Loam Black"],
+        "props": "Glistening silver rootlet beard anchored firmly in dark compost",
+        "setting": "Sunny Maharashtra farm field with raised beds enriched with B.S Organic vermicompost"
+      },
+      "transformation": {
+        "before_organic": "Soft, rot-prone yellowing bulb suffering from fungal root decay in hard chemical soil",
+        "after_organic": "Dense, crisp, oversized purple-red bulb with tight shiny skin and thick sweet rings"
+      },
+      "image_prompt_9_16": "Vertical 9:16, 3D animated Pixar character portrait of Nashik Lal Pyaz, a plump, proud red onion character. Rich glossy magenta-purple outer papery skin with translucent onion layers, big sparkling eyes, and a confident wide smile. A spray of healthy tubular green onion stalks sprouting straight up from the top. Sitting firmly half-buried in moist, spongy black organic vermicompost with healthy white root hairs drinking nutrients. Sunny morning field lighting, 8k Octane 3D render, no text, no watermark.",
+      "video_prompt_hook_8s": "Vertical 9:16, macro time-lapse: Nashik Lal Pyaz drinks from the dark vermicompost bed. His papery skin tightens into radiant purple-red silk with a crisp papery rustle, swelling to double its size! ASMR crisp onion peel rustle and satisfying earth thud. No text, no logos."
+    },
+    {
+      "id": "malwa_lahsun",
+      "name": "Malwa Lahsun (Pearl Garlic)",
+      "tagline": "The Natural Immunity & Pest Shield",
+      "state": "Madhya Pradesh & Rajasthan",
+      "category": "Vegetable",
+      "visual_identity": {
+        "body": "Chubby, bulbous garlic bulb character composed of tightly hugged gleaming pearl-white cloves, wearing a small scholar's glasses and a wise cheerful smile",
+        "colors": ["Pearl Ivory White", "Silvery Sheen", "Dark Charcoal Soil"],
+        "props": "Radiates a soft natural antiseptic aroma bubble",
+        "setting": "Fertile raised garden bed in Malwa region"
+      },
+      "transformation": {
+        "before_organic": "Single puny bulb with loose cloves and yellowing leaf tips",
+        "after_organic": "Giant, tight, heavy bulb packed with 12 fat cloves bursting with sharp organic pungency"
+      },
+      "image_prompt_9_16": "Vertical 9:16, 3D animated character portrait of Malwa Lahsun, an adorable pearl-white garlic bulb character. Tight, glistening white cloves with delicate papery translucent violet streaks, wearing cute round wireframe glasses and a wise beaming smile. Green shoots rising from the apex. Resting atop dark, airy vermicompost soil with morning dew drops on surrounding leaves. Soft volumetric sunlight, 8k Octane render, Pixar quality, no text, no watermark.",
+      "video_prompt_hook_8s": "Vertical 9:16, 3D animation: Malwa Lahsun taps his root into deep black B.S Organic soil. A protective aromatic ring pulses out, gently waving away pests while the bulb swells into massive pearly cloves! ASMR crisp bulb snap and morning bell chime. No text, no captions."
+    },
+    {
+      "id": "palak_rani",
+      "name": "Palak Rani (Velvet Spinach)",
+      "tagline": "The Iron-Rich Green Queen",
+      "state": "Pan-India / Kitchen & Terrace Garden",
+      "category": "Vegetable",
+      "visual_identity": {
+        "body": "Graceful leafy character formed from lush, broad, crinkled emerald-green spinach leaves, sparkling with dew drops, gentle welcoming smile and leafy tiara",
+        "colors": ["Deep Emerald Green", "Crisp Mint Green", "Moist Black Loam"],
+        "props": "Holds a miniature organic watering can",
+        "setting": "Terrace pot or balcony planter filled with rich vermicompost"
+      },
+      "transformation": {
+        "before_organic": "Pale yellow, pest-riddled thin leaves with bitter taste in nutrient-deficient soil",
+        "after_organic": "Broad, velvety, dark-green crinkled leaves bursting with natural iron and sweet tender crunch"
+      },
+      "image_prompt_9_16": "Vertical 9:16, 3D animated Pixar character portrait of Palak Rani, the Queen of Spinach. Elegant, adorable character made of broad, lush emerald-green spinach leaves with rich natural vein textures, sparkling dewdrops, and a sweet smiling face. Green leafy tiara adorning her crown. Rooted in deep, moist black vermicompost soil inside an urban balcony ceramic trough. Golden morning sunlight glowing through translucent leaf edges, 8k 3D render, no text, no watermark.",
+      "video_prompt_hook_8s": "Vertical 9:16, rapid time-lapse: Palak Rani springs up from tiny seed in B.S Organic vermicompost; broad velvet-green leaves fan out gracefully in seconds with dewdrops glistening like diamonds! ASMR crisp leaf unfolding and water droplet chime. No text, no logos."
+    },
+    {
+      "id": "bhindi_birju",
+      "name": "Bhindi Birju (Crispy Okra)",
+      "tagline": "The Tender High-Yield Star",
+      "state": "Pan-India / Gujarat & UP & MP",
+      "category": "Vegetable",
+      "visual_identity": {
+        "body": "Slender, ridged pentagonal green okra character with a jaunty tilted cap stem, lively dancing posture, and a friendly toothy grin",
+        "colors": ["Vibrant Apple Green", "Forest Green Ridges", "Warm Yellow Blossom"],
+        "props": "Yellow hibiscus-like okra flower tucked behind ear",
+        "setting": "Sunny summer farm bed with lush organic foliage"
+      },
+      "transformation": {
+        "before_organic": "Hard, fibrous, woody pod covered in yellow vein mosaic virus",
+        "after_organic": "Tender, snap-crisp, bright green five-ridged pods growing in rapid abundance every day"
+      },
+      "image_prompt_9_16": "Vertical 9:16, 3D animated character portrait of Bhindi Birju, a cheerful okra ladyfinger character. Slender, crisp bright green five-sided ribbed body with tender velvety peach fuzz, wearing a fresh pale-yellow okra flower behind his stem cap, beaming toothy smile. Standing proudly on an upright organic okra plant rooted in crumbly dark vermicompost. High-noon sunny farm warmth, 8k Octane 3D render, no text, no watermark.",
+      "video_prompt_hook_8s": "Vertical 9:16, fast-paced 3D animation: In soft vermicompost soil, Bhindi Birju springs upward; fresh flowers bloom and drop within seconds, replaced by crisp tender green okras that snap crisply with zero fiber! ASMR clean veggie snap sound and sunny rustle. No text, no captions."
+    },
+    {
+      "id": "matar_mohan",
+      "name": "Matar Mohan (Sweet Pea Pod)",
+      "tagline": "The Sweet Green Pearl Cluster",
+      "state": "Punjab & Uttar Pradesh & Madhya Pradesh",
+      "category": "Vegetable",
+      "visual_identity": {
+        "body": "Plump, curved green pea pod character split slightly open to reveal a row of seven cute, giggling baby green pea brothers peeking out with wide happy eyes",
+        "colors": ["Fresh Sweetpea Green", "Lime Highlights", "Dark Earth Soil"],
+        "props": "Delicate curling tendrils that grasp garden trellises playfully",
+        "setting": "Winter morning kitchen garden with delicate frost mist"
+      },
+      "transformation": {
+        "before_organic": "Flat, empty, yellowed pod with underdeveloped shriveled seeds",
+        "after_organic": "Fat, swollen, sweet-as-sugar pods stuffed full of seven giant round green pearls"
+      },
+      "image_prompt_9_16": "Vertical 9:16, 3D animated Pixar character portrait of Matar Mohan. A plump, curved glossy green pea pod that is partially unzipped, showing seven adorable, round, giggling baby pea characters inside with big cartoon eyes and joyful smiles. Curled climbing tendrils wrapping playfully around a bamboo garden stake. Rooted in steaming dark black vermicompost earth with winter morning mist in the garden background. Soft golden rim lighting, 8k Octane render, no text, no watermark.",
+      "video_prompt_hook_8s": "Vertical 9:16, macro slow reveal: Matar Mohan's pod unzips with a delightful pop! Seven plump sweet green pea brothers giggle in unison as the morning sun hits their smooth skins. ASMR sweet pod snap and cheerful baby giggles. No text, no logos."
+    },
+    {
+      "id": "himachali_seb",
+      "name": "Shebu Seb (Himachali Apple)",
+      "tagline": "The Crisp Mountain Sweetheart",
+      "state": "Himachal Pradesh & Jammu & Kashmir",
+      "category": "Fruit",
+      "visual_identity": {
+        "body": "Plump, conical Royal Delicious apple character with deep crimson-red skin speckled with natural golden lenticel dots, wearing a cute woolen Himachali cap (topi)",
+        "colors": ["Royal Crimson Red", "Snow White Flesh", "Woolen Green Cap"],
+        "props": "Delicate pine needle and snowdrop accents on tree branch",
+        "setting": "High-altitude mountain orchard in Shimla or Kullu with snow-capped peaks in the background"
+      },
+      "transformation": {
+        "before_organic": "Small, dull brown scab-marked fruit with cracked skin from nutrient deficiency",
+        "after_organic": "Oversized, mirror-gloss deep red apple with crisp honeyed crunch and snow-clean organic purity"
+      },
+      "image_prompt_9_16": "Vertical 9:16, 3D animated Pixar character portrait of Shebu Seb, a charming mountain apple character. Plump, deep crimson-red Royal Delicious apple with natural golden micro-speckles, wearing a traditional green patterned woolen Himachali cap tilted proudly, big sparkling cartoon eyes, and rosy cheeks. Hanging from an apple tree branch overlooking a misty Himalayan valley with snow-capped mountains. Soil basin around the tree base is enriched with dark spongy vermicompost. Crisp alpine morning sunlight, 8k render, no text, no captions.",
+      "video_prompt_hook_8s": "Vertical 9:16, cinematic mountain shot: Cool Himalayan breeze blows as dark B.S Organic vermicompost nurtures the orchard basin. Shebu Seb swells into a dazzling crimson globe with a crisp icy crunch sound! ASMR crisp apple bite sound and mountain wind chimes. No text, no logos."
+    },
+    {
+      "id": "nagpur_santra",
+      "name": "Nagpur Santra (Juicy Orange)",
+      "tagline": "The Citrus Capital Superstar",
+      "state": "Maharashtra",
+      "category": "Fruit",
+      "visual_identity": {
+        "body": "Spherical, bright neon-orange citrus character with easy-peel pebbled skin, wearing traditional orange Kolhapuri pheta (turban), big sunny smile",
+        "colors": ["Neon Tangerine Orange", "Leaf Green", "Rich Dark Loam"],
+        "props": "Splashes of sweet, fragrant citrus juice droplets floating around him",
+        "setting": "Famous Nagpur orange grove under golden autumn sunshine"
+      },
+      "transformation": {
+        "before_organic": "Dry, thick-skinned, acidic fruit that drops prematurely before ripening",
+        "after_organic": "Thin-skinned, bursting with overflowing honey-sweet juice packets and aromatic natural essential oils"
+      },
+      "image_prompt_9_16": "Vertical 9:16, 3D animated Pixar character portrait of Nagpur Santra, an energetic bright orange citrus character. Perfectly round, radiant tangerine-orange body with juicy pebbled skin texture, wearing a miniature festive saffron headwrap, big friendly smiling eyes. Resting on a sturdy orchard branch with heavy clusters of glowing oranges around him. Tree trunk surrounded by a deep ring of black crumbly vermicompost. Warm autumn golden hour sunlight, 8k Octane 3D render, no text, no watermark.",
+      "video_prompt_hook_8s": "Vertical 9:16, high-speed macro: A burst of vermicompost nutrition surges up the orange tree; Nagpur Santra glows radiant neon orange, releasing a refreshing spiral of fragrant citrus juice droplets! ASMR juicy burst sound and refreshing splash. No text, no captions."
+    },
+    {
+      "id": "bhagwa_anar",
+      "name": "Bhagwa Anar (Jewel Pomegranate)",
+      "tagline": "The Ruby Gem of the Orchard",
+      "state": "Maharashtra & Gujarat & Rajasthan",
+      "category": "Fruit",
+      "visual_identity": {
+        "body": "Majestic, burnished crimson-red pomegranate character with a natural crown calyx on top, split slightly to reveal rows of glowing ruby-red aril jewel teeth",
+        "colors": ["Burnished Crimson Red", "Glistening Ruby Arils", "Deep Black Earth"],
+        "props": "Wears his calyx like an ancient royal maharaja crown",
+        "setting": "Solapur or Nashik high-density pomegranate orchard"
+      },
+      "transformation": {
+        "before_organic": "Bacterial blight spots, cracked dry rind, pale tasteless arils",
+        "after_organic": "Unblemished gloss-crimson leather skin packed tight with deep-red, soft-seeded juicy ruby jewels"
+      },
+      "image_prompt_9_16": "Vertical 9:16, 3D animated character portrait of Bhagwa Anar, the Royal Pomegranate character. Deep burnished crimson-ruby fruit with a magnificent natural multi-pointed calyx crown, smiling warmly as a small window in his rind reveals a treasure trove of glistening ruby arils glowing like cut gems. Rooted in black vermicompost soil. Dramatic side lighting catching the jewel-like highlights on arils, 8k Octane render, Pixar aesthetic, no text, no watermark.",
+      "video_prompt_hook_8s": "Vertical 9:16, macro slow motion: Bhagwa Anar receives B.S Organic nutrition at the roots. His skin blushes into deep glossy ruby; the crown points stand tall, and arils inside burst with sparkling crimson nectar! ASMR crisp fruit crack and pressurized juice squelch. No text, no logos."
+    },
+    {
+      "id": "nashik_angoor",
+      "name": "Nashik Angoor (Royal Grapes)",
+      "tagline": "The Sweet Export-Quality Cluster",
+      "state": "Maharashtra",
+      "category": "Fruit",
+      "visual_identity": {
+        "body": "Lush, heavy hanging bunch of deep midnight-purple and emerald-green grape brothers clustered together like a cheerful musical choir, covered in delicate natural silver bloom wax",
+        "colors": ["Midnight Royal Purple", "Emerald Frost Green", "Silver Wax Bloom"],
+        "props": "Delicate curling vine tendrils with musical notes made of dew",
+        "setting": "Picturesque vineyard arbor with sunlight filtering through grape trellises"
+      },
+      "transformation": {
+        "before_organic": "Loose, shriveled, berry-drop bunches affected by powdery mildew",
+        "after_organic": "Tight, uniform, giant berry clusters with 22+ Brix natural sweetness and flawless silvery bloom"
+      },
+      "image_prompt_9_16": "Vertical 9:16, 3D animated Pixar character portrait of Nashik Angoor. A tight, magnificent cluster of plump midnight-purple and glowing green grapes, each individual grape having a cute tiny smiling cartoon face singing happily together. Covered in natural powdery silver wax bloom. Hanging from an old woody vine under an arched garden trellis rooted in dark moist vermicompost. Dappled afternoon vineyard sunlight, 8k Octane 3D render, no text, no watermark.",
+      "video_prompt_hook_8s": "Vertical 9:16, macro glide: Camera glides under vineyard canopy. The grape cluster drinks up B.S Organic vermicompost tea; each grape swells into a translucent purple gem that plumps up with a harmonic chime! ASMR grape skin pop and gentle vineyard breeze. No text, no captions."
+    },
+    {
+      "id": "kesar_keri",
+      "name": "Kesar Keri (Gir Saffron Mango)",
+      "tagline": "The Queen of Fragrance",
+      "state": "Gujarat",
+      "category": "Fruit",
+      "visual_identity": {
+        "body": "Curved, elegant golden-yellow mango character with a distinctive curved beak tip, bright saffron-orange blush, charming smiling eyes, and a fresh green stem cap",
+        "colors": ["Saffron Gold", "Tangerine Sunset", "Forest Green"],
+        "props": "Swirl of intoxicating mango aroma waves around her",
+        "setting": "Foothills of Gir forest in Gujarat under clear sunny skies"
+      },
+      "transformation": {
+        "before_organic": "Small sour fruit dropping off during heatwaves, chemical fertilizer burns",
+        "after_organic": "Heavy, golden-saffron queen fruit with unmatched natural sweetness and pulp density"
+      },
+      "image_prompt_9_16": "Vertical 9:16, 3D animated character portrait of Kesar Keri, the Queen of Gujarat Mangoes. Beautiful curved golden mango character with a glowing saffron-orange cheek, cheerful twinkling eyes, and a sweet gracious smile. Tucked amidst glossy dark green mango leaves on a sturdy tree branch with rich black vermicompost soil visible below. Golden hour tropical lighting, tactile smooth mango skin, 8k 3D Octane render, no text, no watermark.",
+      "video_prompt_hook_8s": "Vertical 9:16, slow-motion reveal: Kesar Keri sways in the summer breeze. As dark vermicompost nourishes the tree roots, her skin blushes into intense saffron gold, releasing thick aromatic nectar! ASMR sweet summer breeze and nectar drip sound. No text, no logos."
+    },
+    {
+      "id": "nendran_kela",
+      "name": "Nendran Kela (Kerala Banana)",
+      "tagline": "The Golden Potassium Giant",
+      "state": "Kerala & Tamil Nadu",
+      "category": "Fruit",
+      "visual_identity": {
+        "body": "Thick, long, curved golden-yellow banana character with solid green tip, muscular confident stance, and a cheerful warm smile",
+        "colors": ["Rich Golden Yellow", "Lush Jungle Green", "Dark Peat Soil"],
+        "props": "Big broad tropical banana leaf umbrella held overhead",
+        "setting": "Lush tropical Kerala homestead backyard garden"
+      },
+      "transformation": {
+        "before_organic": "Weak pseudo-stem buckling under wind, small dry finger bananas",
+        "after_organic": "Massive 30kg bunch of heavy, thick golden Nendran bananas on a sturdy wind-resistant trunk"
+      },
+      "image_prompt_9_16": "Vertical 9:16, 3D animated Pixar character portrait of Nendran Kela, the giant Kerala banana character. Long, thick, muscular golden-yellow banana body with gentle curved ridges, smiling warmly with confident friendly eyes, holding a broad tropical green banana leaf like an umbrella. Standing proudly in front of a giant banana tree cluster rooted in dark, moist black vermicompost. Lush tropical Kerala monsoon garden background with soft diffused rain light, 8k render, no text, no captions.",
+      "video_prompt_hook_8s": "Vertical 9:16, dynamic 3D zoom: B.S Organic vermicompost feeds the heavy banana trunk; a giant bunch of golden Nendran bananas uncurls effortlessly under broad green leaves with immense strength! ASMR tropical leaf rustle and heavy bunch thud. No text, no logos."
+    },
+    {
+      "id": "allahabad_amrood",
+      "name": "Amrood Amar (Allahabad Guava)",
+      "tagline": "The Sweet Pink-Core Apple Guava",
+      "state": "Uttar Pradesh",
+      "category": "Fruit",
+      "visual_identity": {
+        "body": "Round, bumpy pale-green guava character with smooth yellowish skin, wearing a tiny red scarf, smiling widely to show a peek of sweet baby-pink pulp inside",
+        "colors": ["Pale Lime Green", "Cotton Candy Pink", "Earthy Loam"],
+        "props": "Glistening dew drops and sweet floral aroma aura",
+        "setting": "Traditional Allahabad orchard with sprawling shady trees"
+      },
+      "transformation": {
+        "before_organic": "Hard, stony fruit infested with fruit flies, yellowing leaves",
+        "after_organic": "Soft-fleshed, fragrant, oversized guava with sweet melting pink core and zero pests"
+      },
+      "image_prompt_9_16": "Vertical 9:16, 3D animated character portrait of Amrood Amar, the Allahabad Safeda guava character. Round, textured pale-green fruit with soft golden highlights, cheerful smiling eyes, and a gentle natural seam showing a glimpse of mouthwatering pink interior pulp. Resting on a guava branch surrounded by smooth green leaves and dark crumbly vermicompost soil around the base. Soft morning garden sunshine, 8k Octane 3D render, no text, no watermark.",
+      "video_prompt_hook_8s": "Vertical 9:16, macro bloom: Amrood Amar takes in rich vermicompost moisture; his skin softens into creamy lime-gold as the sweet pink center swells with heavenly fragrance! ASMR crisp skin squeeze and sweet aroma chime. No text, no captions."
+    },
+    {
       "id": "pip_strawberry",
       "name": "Pip Strawberry",
       "tagline": "The Sweet Balcony Terrace Queen",
+      "state": "Maharashtra (Mahabaleshwar) & Himachal Pradesh",
       "category": "Fruit",
       "visual_identity": {
         "body": "Adorable heart-shaped strawberry girl with glistening ruby skin, golden recessed seed sparkles, big shiny anime-Pixar eyes, and a frilly leafy collar",
@@ -133,6 +368,7 @@
       "id": "lemon_leo",
       "name": "Lemon Leo",
       "tagline": "The Citrus Powerhouse",
+      "state": "Andhra Pradesh & Gujarat & Punjab",
       "category": "Fruit",
       "visual_identity": {
         "body": "Zesty bright sunshine-yellow lemon character with pebbled textured skin, wearing cool green leaf sunglasses and an energetic grin",
@@ -151,6 +387,7 @@
       "id": "alphonso_mango",
       "name": "Alphonso Mango",
       "tagline": "The Golden Organic King of Fruits",
+      "state": "Maharashtra (Konkan / Ratnagiri)",
       "category": "Fruit",
       "visual_identity": {
         "body": "Regal, plump golden-saffron mango character with gentle red blush on shoulders, noble friendly expression, wearing a miniature golden leaf crown",
@@ -169,6 +406,7 @@
       "id": "rozy_rose",
       "name": "Rozy Rose",
       "tagline": "The Terrace Garden Showstopper",
+      "state": "Pan-India / Balcony & Terrace Gardens",
       "category": "Flower",
       "visual_identity": {
         "body": "Elegant, velvety deep-crimson rose bloom character with layered spiral petals, graceful feminine eyelashes, sweet welcoming smile, and a sturdy emerald stem",
@@ -187,6 +425,7 @@
       "id": "genda_marigold",
       "name": "Genda (Mighty Marigold)",
       "tagline": "The Festive Pest-Repelling Sunburst",
+      "state": "Pan-India / Bengal & UP & Maharashtra",
       "category": "Flower",
       "visual_identity": {
         "body": "Super-fluffy, layered bright orange-gold marigold character resembling a festive golden pom-pom with wide cheerful eyes and boundless sunny energy",
@@ -202,27 +441,143 @@
       "video_prompt_hook_8s": "Vertical 9:16, dynamic 3D explosion: Genda Marigold absorbs fresh vermicompost nutrition through the roots, puffing up like a giant fluffy golden firework, scattering sweet natural fragrance across the garden! ASMR soft ruffle fluff sound and festive bells. No text, no logos."
     },
     {
-      "id": "mogra_jasmine",
-      "name": "Mogra (Sweet Jasmine)",
-      "tagline": "The Fragrance Queen",
-      "category": "Flower",
+      "id": "kashmiri_kesar",
+      "name": "Kesar Kali (Kashmiri Saffron)",
+      "tagline": "The Golden Thread of the Valley",
+      "state": "Jammu & Kashmir (Pampore)",
+      "category": "Flower & Spice",
       "visual_identity": {
-        "body": "Pure ivory-white multi-layered Arabian jasmine flower character with porcelain-smooth petals, serene smiling eyes, and a soothing calming presence",
-        "colors": ["Pristine Ivory White", "Soft Pearl Cream", "Deep Forest Green"],
-        "props": "Delicate white aroma waves wafting gracefully into the air",
-        "setting": "Moonlit balcony garden or warm morning veranda"
+        "body": "Enchanting violet crocus flower character with three glowing, velvety crimson-gold stigmas that look like magical golden threads, gentle serene smile",
+        "colors": ["Royal Saffron Violet", "Glowing Crimson Stigmas", "Deep Dark Loam"],
+        "props": "Radiates a golden spice mist that glints in the mountain air",
+        "setting": "Famous plateau saffron karewas of Pampore with snow peaks in the distance"
       },
       "transformation": {
-        "before_organic": "Brown-tipped closed buds falling off before blooming",
-        "after_organic": "Hundreds of pure white blossoms opening simultaneously, filling the air with heavenly fragrance"
+        "before_organic": "Weak stunted corms choking in dry depleted clay, failing to sprout",
+        "after_organic": "Plump organic saffron corms producing multiple violet blooms with long, thick, potent red-gold threads"
       },
-      "image_prompt_9_16": "Vertical 9:16, 3D animated Pixar character portrait of Mogra Jasmine. Delicate, multi-layered pristine ivory-white jasmine blossom with porcelain-like soft petals and peaceful smiling eyes. Sitting gracefully on a dark green leafy branch rooted in a pot of dark, rich B.S Organic vermicompost. Soft romantic evening moonlight and golden fairy lights creating gentle bokeh in the background. Photorealistic 3D render, tactile petal softness, 8k quality, no text, no captions.",
-      "video_prompt_hook_8s": "Vertical 9:16, serene night-to-dawn macro: In moist dark vermicompost, Mogra Jasmine's tight white buds drink in nutrients and unfurl with a crystalline shimmer, releasing gentle white fragrant aroma ribbons into the air. ASMR delicate bloom rustle and wind chimes. No text, no watermark."
+      "image_prompt_9_16": "Vertical 9:16, 3D animated Pixar character portrait of Kesar Kali, the Kashmiri Saffron Crocus character. Delicate, royal violet petals cradling three luminous, deep-crimson and golden saffron stigmas standing proudly in the center. Serene smiling cartoon eyes. Rooted in deep, aerated black vermicompost soil in a high-altitude Himalayan field under crisp violet dusk light. Photorealistic 3D render, subsurface glow on saffron threads, 8k quality, no text, no watermark.",
+      "video_prompt_hook_8s": "Vertical 9:16, macro slow reveal: In rich black vermicompost, the violet crocus opens under morning mountain mist; three glowing crimson saffron threads extend gracefully into the sun with an ethereal golden glow! ASMR delicate blossom uncurl and crystalline wind chime. No text, no logos."
+    },
+    {
+      "id": "madurai_malli",
+      "name": "Madurai Malli (Sacred Jasmine)",
+      "tagline": "The Crown of Southern Temples",
+      "state": "Tamil Nadu & Karnataka",
+      "category": "Flower",
+      "visual_identity": {
+        "body": "Pristine, porcelain-white multi-petaled jasmine bud character with thick pointed petals, adorned with a miniature golden garland, radiating divine serene fragrance",
+        "colors": ["Porcelain Pure White", "Deep Emerald Foliage", "Warm Gold Aura"],
+        "props": "Delicate white fragrant ribbons wafting in the air",
+        "setting": "Traditional South Indian temple garden courtyard"
+      },
+      "transformation": {
+        "before_organic": "Brown-tipped unopened buds falling off, weak pale leaves",
+        "after_organic": "Dense clusters of heavy, thick, incredibly fragrant white blossoms opening in unison"
+      },
+      "image_prompt_9_16": "Vertical 9:16, 3D animated Pixar character portrait of Madurai Malli, the sacred jasmine character. Thick, multi-layered pristine ivory-white jasmine blossom with porcelain-like petals and peaceful smiling eyes, wearing a tiny gold-accented temple flower garland. Rooted in moist, spongy black vermicompost inside a brass South Indian urn. Warm brass oil lamps and soft morning temple courtyard light in the background. 8k Octane 3D render, no text, no captions.",
+      "video_prompt_hook_8s": "Vertical 9:16, serene dawn macro: In dark B.S Organic vermicompost, Madurai Malli's tight pearl buds drink in organic tea and unfurl with a soft divine glow, releasing thick ribbons of heavenly temple fragrance! ASMR soft petal stretch and distant temple bell chime. No text, no watermark."
+    },
+    {
+      "id": "tulsi_shrimati",
+      "name": "Tulsi Shrimati (Sacred Holy Basil)",
+      "tagline": "The Household Guardian & Immunity Herb",
+      "state": "Pan-India (Universal Indian Courtyards)",
+      "category": "Herb & Sacred Plant",
+      "visual_identity": {
+        "body": "Graceful Krishna-tulsi character with deep purple-green serrated leaves, tiny purple flower spikes (manjari), wearing a tiny red bindi and a serene benevolent smile",
+        "colors": ["Deep Purple Green", "Lavender Blossom Spikes", "Terracotta Red"],
+        "props": "Protected by a miniature traditional carved Tulsi Vrindavan pot",
+        "setting": "Sunlit Indian home courtyard bathed in spiritual morning light"
+      },
+      "transformation": {
+        "before_organic": "Drooping, bug-bitten yellowed leaves in hard alkaline cement-like soil",
+        "after_organic": "Bushy, vibrant, fragrant purple-green foliage loaded with healing oils and fresh seed spikes"
+      },
+      "image_prompt_9_16": "Vertical 9:16, 3D animated Pixar character portrait of Tulsi Shrimati, the Sacred Holy Basil character. Graceful, bushy character with textured deep purple-green serrated leaves and upright lavender flower spikes, gentle benevolent smiling eyes, and a small red tilak on her leafy forehead. Growing inside an ornate traditional terracotta Tulsi Vrindavan pot filled with rich, moist black vermicompost. Warm spiritual sunrise rays, soft morning mist, 8k Octane render, no text, no watermark.",
+      "video_prompt_hook_8s": "Vertical 9:16, peaceful morning slow pan: Pure water activates dark B.S Organic vermicompost in the Tulsi pot; Tulsi Shrimati flourishes, leaves turning rich deep purple-green as golden morning light radiates around her! ASMR gentle earthen water soak and calming morning chime. No text, no logos."
+    },
+    {
+      "id": "pili_sarson",
+      "name": "Sarson Simran (Mustard Bloom)",
+      "tagline": "The Golden Winter Sea of the North",
+      "state": "Punjab & Haryana & Rajasthan",
+      "category": "Cash Crop & Oilseed",
+      "visual_identity": {
+        "body": "Lively, dancing bright-yellow four-petaled mustard blossom character with cheerful twinkling eyes, wearing a rustic Punjabi phulkari scarf, swaying in the wind",
+        "colors": ["Vibrant Saffron Yellow", "Lush Mustard Green", "Black Silt Earth"],
+        "props": "Surrounded by a golden halo of busy friendly bumblebee friends",
+        "setting": "Endless blooming yellow mustard fields of Punjab under winter sun"
+      },
+      "transformation": {
+        "before_organic": "Sparse yellow flowers with empty seed pods due to chemical soil exhaustion",
+        "after_organic": "Dense sea of 6-foot tall mustard plants bowed down with thick pods packed with high-oil organic seeds"
+      },
+      "image_prompt_9_16": "Vertical 9:16, 3D animated Pixar character portrait of Sarson Simran, the energetic Mustard Flower character. Bright, glowing neon-yellow four-petaled blossom with big joyful cartoon eyes and a beaming smile, wearing a miniature colourful Punjabi Phulkari scarf. Waving proudly atop a tall, thick green mustard stalk rooted in fertile, dark black vermicompost earth. Vast yellow mustard fields stretching to the horizon under a soft winter sun. 8k 3D Octane render, no text, no captions.",
+      "video_prompt_hook_8s": "Vertical 9:16, sweeping farm camera: Winter wind blows across Punjab fields. Deep roots drink from B.S Organic black soil; Sarson Simran twirls happily as thousands of golden mustard flowers explode into bloom like a yellow sea! ASMR whispering winter breeze and joyful folk flute chime. No text, no logos."
+    },
+    {
+      "id": "ganna_guruji",
+      "name": "Ganna Guruji (Sweet Sugarcane)",
+      "tagline": "The Tower of Pure Organic Jaggery",
+      "state": "Uttar Pradesh & Maharashtra & Haryana",
+      "category": "Cash Crop",
+      "visual_identity": {
+        "body": "Tall, sturdy, multi-jointed dark purple and emerald sugarcane stalk character with friendly elder eyes, graying leafy mustache, and a strong upright posture",
+        "colors": ["Deep Royal Purple", "Juicy Lime Joint Rings", "Rich Dark Soil"],
+        "props": "Holds a miniature walking cane made of pure crystal jaggery",
+        "setting": "Dense sugarcane field with towering 12-foot organic stalks"
+      },
+      "transformation": {
+        "before_organic": "Thin, stunted, dry canes attacked by red rot fungus in exhausted soil",
+        "after_organic": "Massive 2-inch thick, solid juicy purple canes packed with record-high natural sucrose and sweet juice"
+      },
+      "image_prompt_9_16": "Vertical 9:16, 3D animated Pixar character portrait of Ganna Guruji, the wise Sugarcane character. Sturdy, tall segmented purple-and-green sugarcane stalk with smooth nodes, friendly grandfatherly smiling eyes, and a cute leaf mustache. Tall green leafy plume flowing on his head. Deeply rooted in aerated, moist black vermicompost soil. Dense towering sugarcane plantation behind him with sunlight streaming through the leaves. 8k Octane 3D render, no text, no watermark.",
+      "video_prompt_hook_8s": "Vertical 9:16, vertical tilt-up shot: Camera tilts up a massive, thick purple cane rooted in dark vermicompost. Ganna Guruji winks as sweet sugary juice fills every segment to the brim! ASMR satisfying solid cane snap and rushing juice sound. No text, no captions."
+    },
+    {
+      "id": "basmati_raja",
+      "name": "Basmati Raja (The Grain of Kings)",
+      "tagline": "The Fragrant Long-Grain Royal",
+      "state": "Punjab & Haryana",
+      "category": "Cash Crop",
+      "visual_identity": {
+        "body": "Regal, slender, extra-long golden rice grain character wearing a tiny maharaja turban with an emerald plume, bowing graciously with a warm smile",
+        "colors": ["Pearl Cream White", "Golden Husk", "Fertile Black Loam"],
+        "props": "Aroma ribbons of fragrant cooked basmati floating in the air",
+        "setting": "Lush water-reflected paddy field under soft sunrise"
+      },
+      "transformation": {
+        "before_organic": "Chalky, brittle grains that break during milling, stunted yellowing tillers",
+        "after_organic": "Extra-long, slender, pearlescent grains with world-renowned natural aroma and zero chemical residue"
+      },
+      "image_prompt_9_16": "Vertical 9:16, 3D animated Pixar character portrait of Basmati Raja, the Royal Rice character. Slender, extra-long golden-husked rice grain character with a smiling dignified face, wearing an ornate miniature royal turban with a tiny emerald jewel. Swaying gracefully on a lush green paddy ear rooted in rich, fertile organic black soil with water reflections. Early morning golden sunrise over lush Punjab fields. 8k Octane 3D render, no text, no watermark.",
+      "video_prompt_hook_8s": "Vertical 9:16, slow-motion farm pan: B.S Organic enriched soil feeds the paddy roots; the rice stalk bends gracefully under the weight of hundreds of extra-long golden Basmati grains glinting in the sun! ASMR gentle water ripple and rustling grain whispers. No text, no logos."
+    },
+    {
+      "id": "peet_mungfali",
+      "name": "Mungfali Munna (Groundnut Champ)",
+      "tagline": "The Underground Golden Nut",
+      "state": "Gujarat & Andhra Pradesh",
+      "category": "Cash Crop & Oilseed",
+      "visual_identity": {
+        "body": "Cheeky, figure-eight shaped textured tan groundnut pod character with cute dimples, curious sparkling eyes, and tiny leaf hands",
+        "colors": ["Tan Husk Brown", "Golden Kernel", "Moist Black Loam"],
+        "props": "Peeking out from underground soil with a mischievous wink",
+        "setting": "Sandy loam coastal farm in Saurashtra, Gujarat"
+      },
+      "transformation": {
+        "before_organic": "Empty pods (pops) with shriveled bitter nuts in hard-packed dirt",
+        "after_organic": "Heavy, tightly packed pods with two giant plump golden oil-rich nuts inside loose black vermicompost"
+      },
+      "image_prompt_9_16": "Vertical 9:16, 3D animated underground character portrait of Mungfali Munna, the groundnut character. Figure-eight shaped netted tan shell with realistic pod texture, big mischievous cartoon eyes, and a cute wide grin. Nestled comfortably underground in airy, crumbly black vermicompost soil with a cluster of fat healthy groundnut pods around him. Soft underground golden lighting, 8k Octane 3D render, no text, no watermark.",
+      "video_prompt_hook_8s": "Vertical 9:16, underground macro view: In soft spongy vermicompost, Mungfali Munna cracks open with a satisfying crunch to reveal two giant, glossy golden nuts bursting with rich organic oil! ASMR crisp peanut crack sound and soil rumble. No text, no captions."
     },
     {
       "id": "sona_gehun",
       "name": "Sona Gehun (Golden Wheat)",
       "tagline": "The Farmer's Pride Cash Crop",
+      "state": "Madhya Pradesh (Sharbati) & Punjab & Haryana",
       "category": "Cash Crop",
       "visual_identity": {
         "body": "Tall, proud, golden wheat ear character with symmetrical shimmering grain kernels, waving happily in the wind with a strong rustic farmer spirit",
@@ -241,6 +596,7 @@
       "id": "kapas_cotton",
       "name": "Kapas (Fluffy Cotton)",
       "tagline": "The Cloud of the Farm",
+      "state": "Gujarat & Maharashtra & Telangana",
       "category": "Cash Crop",
       "visual_identity": {
         "body": "Super-soft, fluffy cloud-like white cotton boll character nestled inside a dry star-shaped sepia pod, big bubbly innocent eyes and cheerful giggles",
@@ -254,6 +610,25 @@
       },
       "image_prompt_9_16": "Vertical 9:16, 3D animated character portrait of Kapas Cotton. Incredibly fluffy, pure-white cloud-like cotton boll character with big round friendly cartoon eyes, resting inside a star-shaped dry brown pod. Soft tactile fiber textures, individual cotton wisps catching the warm afternoon sunlight. Plant rooted in fertile, dark black vermicompost soil. Pixar 3D aesthetic, ultra-soft subsurface scattering, 8k resolution, no text, no watermark.",
       "video_prompt_hook_8s": "Vertical 9:16, macro slow motion: The pod splits open as a burst of pure-white, fluffy Kapas Cotton expands like a marshmallow cloud, giggling with organic health! ASMR soft cotton puff sound and sunny breeze. No text, no captions."
+    },
+    {
+      "id": "chai_patti",
+      "name": "Chai Rani (Darjeeling Tea Shoot)",
+      "tagline": "The Fragrant Two-Leaves-and-a-Bud",
+      "state": "Assam & West Bengal (Darjeeling)",
+      "category": "Cash Crop",
+      "visual_identity": {
+        "body": "Charming, delicate tea shoot character consisting of two glossy tender lime-green leaves and an upright silver velvety bud, wearing a traditional miniature woven bamboo basket on her back",
+        "colors": ["Tender Tea Lime", "Velvety Silver Bud", "Mist Green Mountain"],
+        "props": "Fresh mountain morning dew droplets resting like pearls on the leaves",
+        "setting": "Misty rolling green tea slopes of Darjeeling or Assam at dawn"
+      },
+      "transformation": {
+        "before_organic": "Tough, scorched, bitter leaves from chemical pesticide overdosing",
+        "after_organic": "Ultra-tender, fragrant shoots packed with sweet muscatel aroma and rich natural catechins"
+      },
+      "image_prompt_9_16": "Vertical 9:16, 3D animated character portrait of Chai Rani, the Tea Shoot character. Two tender, glossy lime-green tea leaves cupping an upright velvety silver bud with a sweet smiling face. Wearing a miniature woven wicker tea-plucking basket on her back. Rooted in dark, moisture-rich organic vermicompost on a terraced mountain slope. Rolling green tea hills covered in ethereal morning mist with dawn light filtering through. 8k Octane 3D render, no text, no captions.",
+      "video_prompt_hook_8s": "Vertical 9:16, cinematic mountain dawn: Morning mist rolls over tea gardens. As B.S Organic vermicompost nourishes the tea bush roots, Chai Rani uncurls with a glistening dewdrop, radiating fresh muscatel tea fragrance! ASMR gentle tea leaf snap and soothing flute melody. No text, no logos."
     }
   ]
 }

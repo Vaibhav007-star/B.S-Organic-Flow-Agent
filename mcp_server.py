@@ -49,20 +49,22 @@ def get_queue_status() -> str:
 
 
 @mcp.tool()
-def list_brand_characters(category: str = "") -> str:
+def list_brand_characters(category: str = "", state: str = "") -> str:
     """List characters available in B.S Organic brand universe.
 
     Args:
         category: Optional filter: 'Hero', 'Vegetable', 'Fruit', 'Flower', 'Cash Crop'.
+        state: Optional state filter: e.g. 'Maharashtra', 'Punjab', 'Gujarat', 'Himachal', 'UP'.
     """
     from character_manager import CharacterManager
     cm = CharacterManager()
-    chars = cm.list_characters(category=category)
+    chars = cm.list_characters(category=category, state=state)
     if not chars:
-        return f"No characters found for category: '{category}'"
+        filter_str = f"category='{category}', state='{state}'"
+        return f"No characters found for filters: {filter_str}"
     lines = [f"B.S Organic Characters ({len(chars)} found):"]
     for c in chars:
-        lines.append(f"- [{c['category']}] {c['name']} (ID: {c['id']}): {c['tagline']}")
+        lines.append(f"- [{c['category']}] [{c.get('state', 'Pan-India')}] {c['name']} (ID: {c['id']}): {c['tagline']}")
     return "\n".join(lines)
 
 
