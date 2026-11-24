@@ -5,7 +5,10 @@ queue management, and local media retrieval in Antigravity and VS Code.
 
 import sys
 from pathlib import Path
-from mcp.server.fastmcp import FastMCP
+try:
+    from mcp.server.mcpserver import MCPServer as FastMCP
+except ImportError:
+    from mcp.server.fastmcp import FastMCP
 
 from config import OUTPUT_DIR, LOGS_DIR
 from prompt_manager import PromptManager

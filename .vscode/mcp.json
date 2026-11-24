@@ -1,9 +1,9 @@
 {
   "mcpServers": {
     "google-flow": {
-      "command": "c:\\Projects\\Flow_agent\\.venv\\Scripts\\python.exe",
+      "command": "python",
       "args": [
-        "c:\\Projects\\Flow_agent\\mcp_server.py"
+        "c:\\Projects\\B.S Organic Flow Agent\\mcp_server.py"
       ]
     },
     "filesystem": {
@@ -11,8 +11,8 @@
       "args": [
         "-y",
         "@modelcontextprotocol/server-filesystem",
-        "c:/Projects/Flow_agent/output_videos",
-        "c:/Projects/Flow_agent"
+        "c:/Projects/B.S Organic Flow Agent/output_videos",
+        "c:/Projects/B.S Organic Flow Agent"
       ]
     }
   }
