@@ -26,8 +26,10 @@ PAGE_TIMEOUT_SEC = int(os.getenv("PAGE_TIMEOUT_SEC", "60"))
 GENERATION_TIMEOUT_SEC = int(os.getenv("GENERATION_TIMEOUT_SEC", "360"))
 POLL_INTERVAL_SEC = int(os.getenv("POLL_INTERVAL_SEC", "3"))
 
-# Optional Viral Trend Hunter APIs
+# Optional Viral Trend Hunter APIs & AI APIs
 YOUTUBE_API_KEY = os.getenv("YOUTUBE_API_KEY", "")
+GEMINI_API_KEY = os.getenv("GEMINI_API_KEY", "")
+GEMINI_MODEL = os.getenv("GEMINI_MODEL", "gemini-2.5-flash")
 
 # Directories
 OUTPUT_DIR = BASE_DIR / os.getenv("OUTPUT_DIR", "output_videos")

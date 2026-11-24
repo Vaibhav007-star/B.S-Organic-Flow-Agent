@@ -152,6 +152,49 @@ def check_story_status(story_id: str) -> str:
 
 
 @mcp.tool()
+def generate_gemini_story(character_id: str, theme_hint: str = "") -> str:
+    """Use Gemini Free API to synthesize a 5-beat organic transformation story for a character.
+
+    Args:
+        character_id: ID of the character (e.g. 'himachali_seb', 'nagpur_santra', 'tommy_tomato').
+        theme_hint: Optional thematic setting (e.g. 'Monsoon terrace garden', 'Punjab winter harvest').
+    """
+    from gemini_story_engine import GeminiStoryEngine
+    engine = GeminiStoryEngine()
+    try:
+        story = engine.generate_story(character_id, theme_hint=theme_hint)
+        return json.dumps(story, indent=2, ensure_ascii=False)
+    except Exception as e:
+        return f"Error: {e}"
+
+
+@mcp.tool()
+def generate_and_queue_gemini_story(character_id: str, theme_hint: str = "") -> str:
+    """Use Gemini API to generate a story and immediately queue all 5 beats into Google Flow.
+
+    Args:
+        character_id: ID of the character (e.g. 'himachali_seb', 'nagpur_santra', 'tommy_tomato').
+        theme_hint: Optional theme (e.g. 'Apple orchard revival', 'Terrace rose bloom').
+    """
+    from gemini_story_engine import GeminiStoryEngine
+    engine = GeminiStoryEngine()
+    try:
+        res = engine.generate_and_queue(character_id, theme_hint=theme_hint, pm=pm)
+        lines = [
+            f"Successfully generated & queued story via {res['generated_by']}:",
+            f"Title: {res['story_title']}",
+            f"Character: {res['character_name']} (ID: {res['character_id']})",
+            f"Story ID: {res['story_id']}",
+            f"Master Video Target: {res['target_master_video']}",
+            f"Queued Prompts: {', '.join(res['queued_prompt_ids'])}",
+            f"\nSocial Caption:\n{res['caption']}",
+        ]
+        return "\n".join(lines)
+    except Exception as e:
+        return f"Error: {e}"
+
+
+@mcp.tool()
 def list_generated_videos() -> str:
     """List all completed video files downloaded from Google Flow in output_videos/."""
     files = list(OUTPUT_DIR.glob("*.mp4")) + list(OUTPUT_DIR.glob("*.webm"))
