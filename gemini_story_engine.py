@@ -107,27 +107,36 @@ Return ONLY a valid JSON object with keys:
 
         # Call Gemini via google-genai SDK or REST API
         raw_text = ""
-        if self.client:
+        candidate_models = [self.model, "gemini-3.7-flash", "gemini-3.5-flash-lite"]
+        # Remove duplicates while preserving order
+        candidate_models = list(dict.fromkeys(candidate_models))
+
+        for m in candidate_models:
             try:
-                from google.genai import types
-                response = self.client.models.generate_content(
-                    model=self.model,
-                    contents=user_prompt,
-                    config=types.GenerateContentConfig(
-                        system_instruction=system_instruction,
-                        response_mime_type="application/json",
-                        temperature=0.7,
-                    ),
-                )
-                raw_text = response.text
+                if self.client:
+                    from google.genai import types
+                    response = self.client.models.generate_content(
+                        model=m,
+                        contents=user_prompt,
+                        config=types.GenerateContentConfig(
+                            system_instruction=system_instruction,
+                            response_mime_type="application/json",
+                            temperature=0.7,
+                        ),
+                    )
+                    raw_text = response.text
+                else:
+                    raw_text = self._call_rest_api(system_instruction, user_prompt, model_override=m)
+
+                if raw_text:
+                    logger.info(f"Generated story successfully with model: {m}")
+                    break
             except Exception as e:
-                logger.warning(f"SDK call failed ({e}), attempting REST fallback...")
-                raw_text = self._call_rest_api(system_instruction, user_prompt)
-        else:
-            raw_text = self._call_rest_api(system_instruction, user_prompt)
+                logger.warning(f"Generation attempt with {m} failed: {e}. Trying next fallback...")
+                time.sleep(1)
 
         # Parse JSON output
-        parsed = self._clean_and_parse_json(raw_text)
+        parsed = self._clean_and_parse_json(raw_text) if raw_text else None
         if not parsed or "beats" not in parsed:
             logger.warning("Could not parse valid story JSON from Gemini. Falling back to template.")
             template_beats = self.cm.generate_template_5beat_story(character_id)
@@ -153,9 +162,10 @@ Return ONLY a valid JSON object with keys:
             "generated_by": f"gemini_{self.model}",
         }
 
-    def _call_rest_api(self, system_inst: str, user_prompt: str) -> str:
+    def _call_rest_api(self, system_inst: str, user_prompt: str, model_override: Optional[str] = None) -> str:
         """Direct REST API fallback to generativelanguage.googleapis.com."""
-        endpoint = f"https://generativelanguage.googleapis.com/v1beta/models/{self.model}:generateContent?key={self.api_key}"
+        target_model = model_override or self.model
+        endpoint = f"https://generativelanguage.googleapis.com/v1beta/models/{target_model}:generateContent?key={self.api_key}"
         payload = {
             "system_instruction": {"parts": [{"text": system_inst}]},
             "contents": [{"parts": [{"text": user_prompt}]}],

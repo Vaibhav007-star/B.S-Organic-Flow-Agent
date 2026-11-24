@@ -42,7 +42,7 @@ def execute_flow_generation(story_id: str, max_clips: int = 5, headless: bool = 
     print("=" * 65)
 
     try:
-        summary = automation.run_queue(max_items=max_clips)
+        summary = automation.run_queue(max_items=max_clips, story_id=story_id)
         print(f"Generation run completed. Summary: {summary}")
     finally:
         bm.close()

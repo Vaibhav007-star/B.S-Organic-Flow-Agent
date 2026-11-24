@@ -116,12 +116,25 @@ class PromptManager:
             return True
         return False
 
-    def get_next_pending(self) -> Optional[Dict[str, Any]]:
-        """Return the next Pending prompt in queue order."""
+    def get_next_pending(self, story_id: Optional[str] = None) -> Optional[Dict[str, Any]]:
+        """Return the next Pending prompt in queue order, optionally filtered by story_id."""
         for item in self.items:
             if item["status"] == "Pending":
-                return item
+                if story_id is not None:
+                    if item.get("story_id") == story_id:
+                        return item
+                else:
+                    return item
         return None
+
+    def get_pending_prompts(self, story_id: Optional[str] = None) -> List[Dict[str, Any]]:
+        """Return all Pending prompts, optionally filtered by story_id."""
+        res = []
+        for item in self.items:
+            if item["status"] == "Pending":
+                if story_id is None or item.get("story_id") == story_id:
+                    res.append(item)
+        return res
 
     def update_status(
         self,

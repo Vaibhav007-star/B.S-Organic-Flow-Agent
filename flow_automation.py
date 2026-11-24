@@ -477,15 +477,16 @@ class GoogleFlowAutomation:
         start_time = time.time()
         page.wait_for_timeout(5000)  # Initial grace period
 
-        # Sniff network responses for FRESH video streams (.mp4 or flow-content.google/video)
+        # Sniff network responses for FRESH video streams (.mp4, flow-content, or content-type video/*)
         captured_stream_url: Optional[str] = None
         def on_response(response):
             nonlocal captured_stream_url
             try:
                 u = response.url
-                if (".mp4" in u or "flow-content.google/video" in u) and u.strip() not in known_video_urls:
+                ctype = response.headers.get("content-type", "").lower()
+                if (".mp4" in u or "flow-content.google/video" in u or "video/" in ctype) and u.strip() not in known_video_urls:
                     captured_stream_url = u
-                    logger.info(f"Captured FRESH live video stream from network: {u[:60]}...")
+                    logger.info(f"Captured FRESH live video stream from network: {u[:70]} (type: {ctype})...")
             except Exception:
                 pass
 
@@ -570,12 +571,13 @@ class GoogleFlowAutomation:
     def run_queue(
         self,
         max_items: Optional[int] = None,
+        story_id: Optional[str] = None,
         progress_callback: Optional[Callable[[Dict[str, Any]], None]] = None,
     ) -> Dict[str, int]:
         """Main batch processing loop."""
         self.is_running = True
         self._stop_requested = False
-        logger.info("Starting Google Flow automation queue...")
+        logger.info(f"Starting Google Flow automation queue (story_id={story_id or 'ANY'}, max_items={max_items})...")
 
         _, page = self.browser_manager.start()
         self.browser_manager.navigate_to_flow()
@@ -592,9 +594,9 @@ class GoogleFlowAutomation:
                 logger.info(f"Reached requested max_items ({max_items}). Stopping.")
                 break
 
-            item = self.prompt_manager.get_next_pending()
+            item = self.prompt_manager.get_next_pending(story_id=story_id)
             if not item:
-                logger.info("No pending prompts remaining in queue.")
+                logger.info(f"No pending prompts remaining in queue (story_id={story_id or 'ANY'}).")
                 break
 
             if progress_callback:
