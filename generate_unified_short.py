@@ -108,7 +108,7 @@ def run_character_story_pipeline(character_id: str, theme_hint: Optional[str] = 
     return res
 
 
-def run_commercial_pipeline(render_sample: bool = False, generate_flow: bool = False) -> Dict[str, Any]:
+def run_commercial_pipeline(render_sample: bool = False, generate_flow: bool = False, max_clips: int = 5, headless: bool = False) -> Dict[str, Any]:
     """Queues the official 40-second photoreal B.S Organic bag commercial (No characters/people)."""
     from prompt_manager import PromptManager
     pm = PromptManager()
@@ -126,14 +126,59 @@ def run_commercial_pipeline(render_sample: bool = False, generate_flow: bool = F
 
     out_video = OUTPUT_DIR / f"{story_id}_master_40s.mp4"
     if generate_flow:
-        print("\nStarting Google Flow Video Generation for Commercial...")
-        execute_flow_generation(story_id, max_clips=5, headless=False)
+        print(f"\nStarting Google Flow Video Generation for Commercial (max {max_clips} clips)...")
+        execute_flow_generation(story_id, max_clips=max_clips, headless=headless)
     elif render_sample:
         print("\nRendering 40.0s Master Commercial Video...")
         render_sample_preview_short(out_video, character_name="B.S. Organic Official Bag")
         print(f"Master Commercial Ready: {out_video.name}")
 
     return {"story_id": story_id, "master_video": str(out_video), "beats_count": len(story_items)}
+
+
+def run_character_story_pipeline(character_id: str, theme_hint: Optional[str] = None, render_sample: bool = False, generate_flow: bool = False, max_clips: int = 5, headless: bool = False) -> Dict[str, Any]:
+    """Generates a complete 5-beat story using Gemini, queues prompts for Google Flow,
+    and optionally renders the 40-second master preview short.
+    """
+    cm = CharacterManager()
+    c = cm.get_character(character_id)
+    if not c:
+        raise ValueError(f"Character '{character_id}' not found in database. Use --list-characters to inspect options.")
+
+    print("\n" + "=" * 65)
+    print(f"🌿 B.S ORGANIC UNIFIED SHORT PIPELINE: [{c['name'].upper()}]")
+    print(f"Region: {c.get('state', 'Pan-India')} | Category: {c['category']}")
+    print(f"Reference Bag: {ASSET_BAG_REF.name} ({'EXISTS ✓' if ASSET_BAG_REF.exists() else 'MISSING ✗'})")
+    print("=" * 65)
+
+    engine = GeminiStoryEngine()
+    print("\nStep 1: Calling Gemini API for 5-Beat Story & Hindi Voice-Over...")
+    res = engine.generate_and_queue(character_id, theme_hint=theme_hint)
+
+    print(f"🎉 Story Generated via {res['generated_by']}!")
+    print(f"Title: {res['story_title']}")
+    print(f"Story ID: {res['story_id']}")
+    print(f"Target Video: {res['target_master_video']}")
+    print(f"Queued Prompt IDs: {', '.join(res['queued_prompt_ids'])}")
+    print(f"\nSocial Caption:\n{res['caption']}\n")
+
+    if generate_flow:
+        print(f"\nStep 2: Starting Google Flow Automation to Generate Video Clips (max {max_clips})...")
+        execute_flow_generation(res["story_id"], max_clips=max_clips, headless=headless)
+    elif render_sample:
+        print("\nStep 2: Rendering 40.0s Master Short Preview via FFmpeg...")
+        out_video = OUTPUT_DIR / res["target_master_video"]
+        render_sample_preview_short(out_video, character_name=c["name"])
+        print(f"Master Short Ready: {out_video.name}")
+        res["master_video_path"] = str(out_video)
+
+    print("=" * 65)
+    print("Next Steps:")
+    print(f"1. Generate clips on Google Flow: python generate_unified_short.py --character {c['id']} --generate-flow")
+    print(f"2. Check status: python -c \"from character_manager import CharacterManager; print(CharacterManager().check_story_completion('{res['story_id']}'))\"")
+    print(f"3. Stitch final short: python build_story_short.py --story-id {res['story_id']}")
+    print("=" * 65 + "\n")
+    return res
 
 
 def main():
@@ -143,6 +188,8 @@ def main():
     parser.add_argument("--theme", type=str, default=None, help="Thematic setting hint for Gemini story")
     parser.add_argument("--render-sample", action="store_true", help="Render a 40.0s sample video via FFmpeg immediately")
     parser.add_argument("--generate-flow", action="store_true", help="Launch Google Flow browser automation to generate and download real Veo video clips")
+    parser.add_argument("--max-clips", type=int, default=5, help="Maximum clips to generate in this run (default: 5)")
+    parser.add_argument("--headless", action="store_true", help="Run browser in headless mode (default: False)")
     parser.add_argument("--list-characters", action="store_true", help="List all 33 regional characters")
     parser.add_argument("--state", type=str, default=None, help="Filter characters by state")
     args = parser.parse_args()
@@ -159,12 +206,12 @@ def main():
         return
 
     if args.commercial:
-        run_commercial_pipeline(render_sample=args.render_sample, generate_flow=args.generate_flow)
+        run_commercial_pipeline(render_sample=args.render_sample, generate_flow=args.generate_flow, max_clips=args.max_clips, headless=args.headless)
     elif args.character:
-        run_character_story_pipeline(args.character, theme_hint=args.theme, render_sample=args.render_sample, generate_flow=args.generate_flow)
+        run_character_story_pipeline(args.character, theme_hint=args.theme, render_sample=args.render_sample, generate_flow=args.generate_flow, max_clips=args.max_clips, headless=args.headless)
     else:
         # Default run with Tommy Tomato
-        run_character_story_pipeline("tommy_tomato", theme_hint=args.theme, render_sample=args.render_sample, generate_flow=args.generate_flow)
+        run_character_story_pipeline("tommy_tomato", theme_hint=args.theme, render_sample=args.render_sample, generate_flow=args.generate_flow, max_clips=args.max_clips, headless=args.headless)
 
 
 if __name__ == "__main__":

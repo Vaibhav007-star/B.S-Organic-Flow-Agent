@@ -177,6 +177,7 @@ class GoogleFlowAutomation:
         """Locates the generate/submit button."""
         button_selectors = [
             "button[aria-label*='Start generation' i]",
+            "button:has-text('arrow_forward')",
             "flow-generate-icon-button button",
             "button[type='submit']:has-text('arrow_forward')",
             "button[type='submit']",
@@ -241,18 +242,20 @@ class GoogleFlowAutomation:
         self,
         page: Page,
         mode: str = "Video",
-        sub_type: Optional[str] = None,
+        sub_type: str = "Ingredients",
         aspect_ratio: str = "9:16",
+        model_name: str = "Omni 1.2 Flash",
+        resolution: str = "720p",
         duration: str = "8s",
         quantity: str = "x1",
     ) -> bool:
-        """Configures generation parameters (Video, 9:16 vertical ratio, 8s, x1) in the Flow popover."""
+        """Configures generation parameters (Video, 9:16 vertical ratio, Omni 1.2 Flash/Veo, 720p, 8s, x1) in the Flow popover."""
         settings_btn = page.locator("button:has-text('Video'), button:has-text('Nano Banana'), button:has-text('Banana'), button:has-text('Veo'), button:has-text('crop_')").first
         if not settings_btn.is_visible():
             logger.debug("Settings trigger button not found.")
             return False
 
-        logger.info(f"Configuring generation settings: {mode}, {aspect_ratio}, {duration}, {quantity}...")
+        logger.info(f"Configuring generation settings: {mode}, {sub_type}, {aspect_ratio}, model={model_name}, {resolution}, {duration}, {quantity}...")
         try:
             settings_btn.click()
             page.wait_for_timeout(1000)
@@ -264,7 +267,7 @@ class GoogleFlowAutomation:
                     v_btn.click()
                     page.wait_for_timeout(800)
 
-            # 2. Sub-type (optional, e.g. Ingredients)
+            # 2. Sub-type: Ingredients
             if sub_type:
                 ing_btn = page.locator(f".cdk-overlay-container button:has-text('{sub_type}')").first
                 if ing_btn.is_visible():
@@ -278,14 +281,35 @@ class GoogleFlowAutomation:
                     ar_btn.click()
                     page.wait_for_timeout(400)
 
-            # 4. Duration: 8s
+            # 4. Model selection (e.g. Omni 1.2 Flash, Veo 3.1 - Quality)
+            if model_name:
+                try:
+                    dropdown = page.locator(".cdk-overlay-container button:has-text('arrow_drop_down')").first
+                    if dropdown.is_visible() and model_name.lower() not in dropdown.inner_text().lower():
+                        dropdown.click()
+                        page.wait_for_timeout(600)
+                        target_opt = page.locator(f".cdk-overlay-container button:has-text('{model_name}'), .cdk-overlay-container [role='option']:has-text('{model_name}')").first
+                        if target_opt.is_visible():
+                            target_opt.click()
+                            page.wait_for_timeout(500)
+                except Exception as e:
+                    logger.debug(f"Model select notice: {e}")
+
+            # 5. Resolution: 720p
+            if resolution:
+                res_btn = page.locator(f".cdk-overlay-container button:has-text('{resolution}')").first
+                if res_btn.is_visible():
+                    res_btn.click()
+                    page.wait_for_timeout(300)
+
+            # 6. Duration: 8s
             if duration:
                 dur_btn = page.locator(f".cdk-overlay-container button:has-text('{duration}')").first
                 if dur_btn.is_visible():
                     dur_btn.click()
                     page.wait_for_timeout(300)
 
-            # 5. Quantity: x1
+            # 7. Quantity: x1
             if quantity:
                 q_btn = page.locator(f".cdk-overlay-container button:has-text('{quantity}')").first
                 if q_btn.is_visible():
@@ -451,8 +475,8 @@ class GoogleFlowAutomation:
         # 1. Locate prompt input (ensure project is open)
         self.ensure_project_open(page)
 
-        # Apply settings: Video, Ingredients, 9:16 vertical, 8s, x1
-        self.configure_generation_settings(page, mode="Video", sub_type="Ingredients", aspect_ratio="9:16", duration="8s", quantity="x1")
+        # Apply best settings: Video, Ingredients, 9:16 vertical, Omni 1.2 Flash (or Veo), 720p, 8s, x1
+        self.configure_generation_settings(page, mode="Video", sub_type="Ingredients", aspect_ratio="9:16", model_name="Omni 1.2 Flash", resolution="720p", duration="8s", quantity="x1")
 
         input_box = self.find_prompt_input(page, timeout_sec=15)
         if not input_box:
