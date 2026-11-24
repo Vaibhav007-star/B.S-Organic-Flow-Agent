@@ -241,18 +241,18 @@ class GoogleFlowAutomation:
         self,
         page: Page,
         mode: str = "Video",
-        sub_type: str = "Ingredients",
+        sub_type: Optional[str] = None,
         aspect_ratio: str = "9:16",
         duration: str = "8s",
         quantity: str = "x1",
     ) -> bool:
         """Configures generation parameters (Video, 9:16 vertical ratio, 8s, x1) in the Flow popover."""
-        settings_btn = page.locator("button[aria-label*='Settings trigger' i]").first
+        settings_btn = page.locator("button:has-text('Video'), button:has-text('Nano Banana'), button:has-text('Banana'), button:has-text('Veo'), button:has-text('crop_')").first
         if not settings_btn.is_visible():
             logger.debug("Settings trigger button not found.")
             return False
 
-        logger.info(f"Configuring generation settings: {mode}, {sub_type}, {aspect_ratio}, {duration}, {quantity}...")
+        logger.info(f"Configuring generation settings: {mode}, {aspect_ratio}, {duration}, {quantity}...")
         try:
             settings_btn.click()
             page.wait_for_timeout(1000)
@@ -262,21 +262,21 @@ class GoogleFlowAutomation:
                 v_btn = page.locator(f".cdk-overlay-container button:has-text('{mode}')").first
                 if v_btn.is_visible():
                     v_btn.click()
-                    page.wait_for_timeout(500)
+                    page.wait_for_timeout(800)
 
-            # 2. Sub-type: Ingredients
+            # 2. Sub-type (optional, e.g. Ingredients)
             if sub_type:
                 ing_btn = page.locator(f".cdk-overlay-container button:has-text('{sub_type}')").first
                 if ing_btn.is_visible():
                     ing_btn.click()
-                    page.wait_for_timeout(300)
+                    page.wait_for_timeout(400)
 
             # 3. Aspect Ratio: 9:16
             if aspect_ratio:
                 ar_btn = page.locator(f".cdk-overlay-container button:has-text('{aspect_ratio}')").first
                 if ar_btn.is_visible():
                     ar_btn.click()
-                    page.wait_for_timeout(300)
+                    page.wait_for_timeout(400)
 
             # 4. Duration: 8s
             if duration:
@@ -301,7 +301,7 @@ class GoogleFlowAutomation:
             page.keyboard.press("Escape")
             return False
 
-    def try_open_canvas_card(self, page: Page, excluded_urls: Optional[Set[str]] = None) -> bool:
+    def try_open_canvas_card(self, page: Page, excluded_urls: Optional[Set[str]] = None, keyword: Optional[str] = None) -> bool:
         """Finds and clicks the latest generated media card on the Google Flow canvas to reveal the video player."""
         excluded = excluded_urls or set()
         video_locator = page.locator("video")
@@ -311,15 +311,43 @@ class GoogleFlowAutomation:
                 if src and src.strip() not in excluded and video_locator.nth(i).is_visible():
                     return True
 
-        # Direct click on the verified play button coordinate of the canvas card
+        # 1. Search for card button with 'video' or 'videocam' or prompt keyword
+        selectors = []
+        if keyword:
+            selectors.append(f"button:has-text('{keyword}')")
+            selectors.append(f":has-text('{keyword}')")
+        selectors.extend([
+            "button:has-text('videocam')",
+            "button:has-text('video')",
+            "[role='button']:has-text('video')",
+            "[role='button']:has-text('videocam')",
+        ])
+
+        for sel in selectors:
+            loc = page.locator(sel)
+            try:
+                count = loc.count()
+                for idx in range(count):
+                    card = loc.nth(idx)
+                    if card.is_visible():
+                        card.click()
+                        page.wait_for_timeout(2000)
+                        for vi in range(page.locator("video").count()):
+                            v_src = page.locator("video").nth(vi).get_attribute("src")
+                            if v_src and v_src.strip() not in excluded:
+                                logger.info(f"Opened canvas card via '{sel}' with video: {v_src[:60]}...")
+                                return True
+            except Exception:
+                continue
+
+        # 2. Direct click on canvas as fallback
         try:
             canvas = page.locator("canvas").first
             if canvas.is_visible():
-                coords = [(50, 195), (60, 200)]
+                coords = [(300, 300), (400, 350), (50, 195)]
                 for x, y in coords:
                     page.mouse.click(x, y)
-                    # Allow up to 5 seconds for video player hydration inside modal
-                    for _ in range(5):
+                    for _ in range(3):
                         page.wait_for_timeout(1000)
                         for i in range(page.locator("video").count()):
                             v_src = page.locator("video").nth(i).get_attribute("src")
@@ -354,7 +382,7 @@ class GoogleFlowAutomation:
                 break
 
         if not has_fresh_video:
-            self.try_open_canvas_card(page, excluded_urls=excluded)
+            self.try_open_canvas_card(page, excluded_urls=excluded, keyword=prompt_item.get("character_name"))
 
         # 1. Check for <video> element inside player that is NOT an excluded previous video
         video_locator = page.locator("video")
@@ -527,7 +555,7 @@ class GoogleFlowAutomation:
                 # Only after 60 seconds of real rendering, try opening the canvas card
                 elapsed = time.time() - start_time
                 if elapsed > 60:
-                    if self.try_open_canvas_card(page, excluded_urls=known_video_urls):
+                    if self.try_open_canvas_card(page, excluded_urls=known_video_urls, keyword=prompt_item.get("character_name")):
                         logger.info("Video generation completed and modal opened!")
                         generation_completed = True
                         break
