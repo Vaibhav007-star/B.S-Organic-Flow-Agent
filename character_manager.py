@@ -7,6 +7,7 @@ Handles characters according to the story pipeline:
 """
 
 import json
+import random
 import time
 import uuid
 from pathlib import Path
@@ -59,6 +60,15 @@ class CharacterManager:
             st_lower = state.strip().lower()
             results = [c for c in results if st_lower in c.get("state", "").lower()]
         return results
+
+    def get_random_character(self, category: Optional[str] = None, state: Optional[str] = None, exclude_companions: bool = True) -> Dict[str, Any]:
+        """Return a random character from the pool, optionally filtered."""
+        pool = self.list_characters(category=category, state=state)
+        if exclude_companions:
+            pool = [c for c in pool if c["id"] not in ("captain_wiggly", "bs_organic_gold")]
+        if not pool:
+            pool = self.characters
+        return random.choice(pool)
 
     def get_character(self, character_id: str) -> Optional[Dict[str, Any]]:
         """Retrieve a single character by ID."""
