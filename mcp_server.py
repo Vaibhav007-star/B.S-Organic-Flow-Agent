@@ -49,20 +49,46 @@ def get_queue_status() -> str:
 
 
 @mcp.tool()
-def hunt_viral_cars(count: int = 3) -> str:
-    """Scan YouTube Shorts, Google Trends, and viral niches to discover top trending cars and auto-queue them.
+def list_brand_characters(category: str = "") -> str:
+    """List characters available in B.S Organic brand universe.
 
     Args:
-        count: Number of viral cars to hunt and queue (default 3).
+        category: Optional filter: 'Hero', 'Vegetable', 'Fruit', 'Flower', 'Cash Crop'.
     """
-    from trend_hunter import TrendHunter
-    th = TrendHunter()
-    trends = th.get_trending_cars(max_results=count)
-    added = th.queue_trending_cars(trends, pm)
-    lines = [f"Successfully queued {added} viral cars into Google Flow automation:"]
-    for t in trends:
-        lines.append(f"- {t['car']} ({t['color']}) [Score: {t['score']}] Source: {t['source']}")
+    from character_manager import CharacterManager
+    cm = CharacterManager()
+    chars = cm.list_characters(category=category)
+    if not chars:
+        return f"No characters found for category: '{category}'"
+    lines = [f"B.S Organic Characters ({len(chars)} found):"]
+    for c in chars:
+        lines.append(f"- [{c['category']}] {c['name']} (ID: {c['id']}): {c['tagline']}")
     return "\n".join(lines)
+
+
+@mcp.tool()
+def queue_character_image(character_id: str) -> str:
+    """Queue a high-definition 9:16 portrait prompt for a B.S Organic character to Google Flow.
+
+    Args:
+        character_id: ID of the character (e.g. 'captain_wiggly', 'tommy_tomato', 'rozy_rose').
+    """
+    from character_manager import CharacterManager
+    cm = CharacterManager()
+    c = cm.get_character(character_id)
+    if not c:
+        return f"Error: Character ID '{character_id}' not found."
+    results = cm.queue_character_images([character_id], pm=pm)
+    return f"Successfully queued 9:16 reference image prompt for {c['name']} into Google Flow.\nQueue items: {results}"
+
+
+@mcp.tool()
+def queue_all_character_images() -> str:
+    """Queue 9:16 portrait image prompts for all 14 B.S Organic characters into Google Flow."""
+    from character_manager import CharacterManager
+    cm = CharacterManager()
+    results = cm.queue_character_images(pm=pm)
+    return f"Queued {len(results)} character prompts into Google Flow:\n" + "\n".join(results)
 
 
 @mcp.tool()

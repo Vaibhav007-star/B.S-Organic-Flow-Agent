@@ -1,0 +1,259 @@
+{
+  "brand": "B.S Organic",
+  "default_style": "High-end 3D animated Pixar-DreamWorks aesthetic, Octane 3D render, subsurface scattering, tactile organic textures, vertical 9:16 aspect ratio, warm cinematic sunlight, shallow depth of field, 8K resolution",
+  "negative_prompt": "no text, no captions, no logos, no watermark, no human face, no 2D flat drawing, no grotesque realism, no low poly, no deformed eyes",
+  "characters": [
+    {
+      "id": "captain_wiggly",
+      "name": "Captain Wiggly (Kenchua Bro)",
+      "tagline": "The Soil Super-Chef & Organic Vermicompost Mascot",
+      "category": "Hero Mascot",
+      "visual_identity": {
+        "species": "Red Wiggler Earthworm (Eisenia fetida)",
+        "body": "Cute, glossy reddish-pink segmented worm body with a velvety pearlescent sheen, big expressive sparkling cartoon eyes, joyful warm smile",
+        "clothing": "Miniature burlap farmer hat tilted on head, tiny emerald-green gardener bandana tied neatly around neck",
+        "props": "Holds a tiny golden gardening trowel in hand",
+        "setting": "Perched playfully atop a mound of steaming, nutrient-dense crumbly dark brown vermicompost surrounded by green sprout shoots"
+      },
+      "transformation": {
+        "before_organic": "Lethargic, hiding deep under hard cracked grey clay soil with zero moisture",
+        "after_organic": "Energetic, glowing with vitality, aerating loose spongy black loam soil with a sparkling organic aura"
+      },
+      "image_prompt_9_16": "Vertical 9:16, 3D animated Pixar character portrait of Captain Wiggly, an adorable friendly red-wiggler earthworm. Glossy segmented reddish-pink body with subtle subsurface scattering, large expressive sparkling hazel eyes, warm cheerful smile. Wearing a tiny textured burlap sunhat and an emerald-green gardener neck scarf, holding a miniature polished golden trowel. Sitting proudly atop a rich mound of moist, dark brown crumbly vermicompost teeming with tiny green sprouts and soft golden morning rim lighting. Organic garden farm background with soft cinematic bokeh. Hyper-detailed 3D render, Octane lighting, tactile organic textures, 8k quality, no text, no watermark, no captions.",
+      "video_prompt_hook_8s": "Vertical 9:16, 3D animated macro cinema: Captain Wiggly the adorable pink earthworm wearing a tiny burlap hat pops out of moist dark crumbly vermicompost with an energetic wave, blinking happily. Key light illuminates rich soil texture. Close-mic ASMR soft earthy rustle and cheerful chime. No text, no logos."
+    },
+    {
+      "id": "bs_organic_gold",
+      "name": "B.S Organic Living Soil Pack",
+      "tagline": "Pure 100% Organic Vermicompost & Black Gold Soil",
+      "category": "Hero Mascot",
+      "visual_identity": {
+        "packaging": "Premium eco-friendly kraft paper and matte emerald pouch with clean gold leaf leaf motif and organic certification badges",
+        "content": "Rich, jet-black crumbly vermicompost that looks like moist dark coffee grounds, glowing with golden microbiological specks",
+        "setting": "Studio farm table with soft mist, morning sunlight, fresh dew drops on nearby clover leaves"
+      },
+      "transformation": {
+        "before_organic": "Dead grey compacted dirt blocks, barren and dusty",
+        "after_organic": "Instant transformation into porous, moisture-retaining, dark spongy black loam teeming with beneficial microbes"
+      },
+      "image_prompt_9_16": "Vertical 9:16, commercial hero portrait of B.S Organic Vermicompost: a premium rustic kraft paper fertilizer pouch with deep emerald accents standing beside a magnificent heap of moist, black crumbly organic vermicompost texture resembling premium fine dark loam. Tiny vibrant green seedlings sprout directly from the compost mound. Gentle warm morning rays filtering through mist, dew drops glistening. Photorealistic 3D commercial render, tactile crumbly soil macro details, shallow depth of field, 8k resolution, no text, no captions, no watermark.",
+      "video_prompt_hook_8s": "Vertical 9:16, macro slow motion: Hands gently pour dark, velvety crumbly B.S Organic vermicompost around thirsty plant roots in soft soil. The soil immediately turns deep rich black, absorbing moisture with a soft satisfying earthy whoosh. Golden microbiological glow radiates. No text, no logos."
+    },
+    {
+      "id": "tommy_tomato",
+      "name": "Tommy Tomato",
+      "tagline": "From Wilting Vine to Juicy Ruby Giant",
+      "category": "Vegetable",
+      "visual_identity": {
+        "body": "Chubby, perfectly round 3D animated tomato character with glossy, flawless ruby-red skin, bright cheerful cartoon eyes, and a cute leaf calyx crown for hair",
+        "colors": ["Vibrant Crimson Red", "Emerald Leaf Green", "Glistening Dew Gold"],
+        "props": "Clusters of baby tomato friends peeking from vines behind him",
+        "setting": "Lush home terrace kitchen garden wooden planter box filled with dark vermicompost"
+      },
+      "transformation": {
+        "before_organic": "Small, dull orange-yellow skin with wrinkles, droopy leaf crown, sad frown, potted in cracked dry grey chemical soil",
+        "after_organic": "Giant, plump, mirror-gloss ruby red, laughing cheerfully on sturdy emerald vine heavy with juicy ripe fruit clusters"
+      },
+      "image_prompt_9_16": "Vertical 9:16, 3D animated Pixar-style character portrait of Tommy Tomato. Plump, perfectly round tomato character with mirror-gloss deep ruby-red skin and glistening natural dew drops. Adorable big expressive cartoon eyes and a proud joyful smile, with a spiky fresh emerald-green leafy calyx haircut. Standing happily in a terrace wooden garden planter bed filled with rich, moist dark brown vermicompost. Lush green tomato vines with glowing yellow blossoms in the blurred background. Warm golden hour rim lighting, tactile fruit texture, 8k render, no text, no watermark.",
+      "video_prompt_hook_8s": "Vertical 9:16, 3D animated time-lapse: Sad pale droopy Tommy Tomato sits in dry cracked dirt. Suddenly dark B.S Organic vermicompost feeds his base. Water and nutrients surge up the stem; Tommy swells rapidly, skin turns incandescent ruby red with a cheerful gasp! ASMR soil drink and crisp leaf pop. No text, no captions."
+    },
+    {
+      "id": "chintu_carrot",
+      "name": "Chintu Carrot",
+      "tagline": "The Deep-Rooting Soil Explorer",
+      "category": "Vegetable",
+      "visual_identity": {
+        "body": "Cute elongated tapering cartoon carrot character with vivid neon-orange skin, soft horizontal root ridges, big curious eyes and a bushy emerald feather top-knot",
+        "colors": ["Sunburst Vivid Orange", "Forest Green Leaf Crown", "Dark Brown Earth"],
+        "props": "Pair of tiny gardening goggles pushed up on his forehead",
+        "setting": "Deep organic raised farm bed with loose, fluffy vermicompost-enriched soil"
+      },
+      "transformation": {
+        "before_organic": "Short, twisted, stunted root blocked by hard clay rocks, struggling with pale yellowish foliage",
+        "after_organic": "Straight, thick, crunchy, ultra-sweet vibrant orange taproot extending effortlessly 30cm deep into airy black soil"
+      },
+      "image_prompt_9_16": "Vertical 9:16, 3D animated character portrait of Chintu Carrot, an adorable cartoon carrot character. Thick, tapered vibrant neon-orange root body with natural micro-ridges, cheerful big sparkling black eyes and friendly grin. Pushed-up miniature brass pilot goggles on his forehead and a tall, feathery emerald-green leaf tuft. Peeking halfway out of deep, loose, spongy dark brown organic vermicompost soil. Sunlight glints off moist soil granules, soft garden atmosphere, 3D Octane render, Pixar quality, 8k resolution, no text, no watermark.",
+      "video_prompt_hook_8s": "Vertical 9:16, split underground macro view: Chintu Carrot wriggles his root effortlessly down through fluffy dark vermicompost, humming with joy as roots branch out like golden threads. He pops his head out of the soil with a cheerful wink! ASMR soft soil crunch and underground pop. No text, no watermark."
+    },
+    {
+      "id": "chilli_chacha",
+      "name": "Chilli Chacha",
+      "tagline": "The Fiery Spicy Organic Protector",
+      "category": "Vegetable",
+      "visual_identity": {
+        "body": "Slim, dynamic, curved hot pepper character, half fiery glossy red and half crisp emerald green, wearing a twirly curved stem like an elegant handlebar mustache, mischievous wink",
+        "colors": ["Fiery Gloss Crimson", "Glossy Lime Green", "Earthy Black Loam"],
+        "props": "Tiny flaming aura or spicy spark hovering above his stem tip",
+        "setting": "Organic vegetable patch under bright sunny sky"
+      },
+      "transformation": {
+        "before_organic": "Wilted pale green pepper, curled leaves from pest attack, dull matte skin",
+        "after_organic": "Standing upright with glossy mirror shine, fiery natural pest resistance, loaded with heavy spicy pepper bunches"
+      },
+      "image_prompt_9_16": "Vertical 9:16, 3D animated Pixar character portrait of Chilli Chacha, a charismatic hot pepper character. Sleek curved body with deep glossy fire-engine red skin transitioning into crisp emerald green at the stem. Big lively cartoon eyes with a confident playful wink, and a stem curved like an energetic swirl. Standing tall on a sturdy plant branch rooted in rich black vermicompost earth. Warm dramatic side lighting, photorealistic skin sheen, 8k Octane 3D render, no text, no captions.",
+      "video_prompt_hook_8s": "Vertical 9:16, high-energy 3D animation: Chilli Chacha flexes on his vine, absorbing rich vermicompost nutrients. His skin turns glossy fiery red with a sizzle sound, sending out tiny golden organic protection rings that keep pests away! ASMR snappy crunch and crackle. No text, no logos."
+    },
+    {
+      "id": "potato_pandu",
+      "name": "Potato Pandu",
+      "tagline": "The Underground Multiplier",
+      "category": "Vegetable",
+      "visual_identity": {
+        "body": "Chubby, lovable golden-brown potato character with cute dimples, sleepy friendly smile, and gentle rosy cheeks",
+        "colors": ["Warm Russet Gold", "Velvety Dark Soil Brown", "Pale Green Sproutlet"],
+        "props": "Surrounded by a cuddly cluster of baby potato tubers underground",
+        "setting": "Underground cross-section in moist, aerated dark vermicompost loam"
+      },
+      "transformation": {
+        "before_organic": "Single rock-hard, scabby tuber trapped in dense compacted yellow clay",
+        "after_organic": "A thriving family of smooth, flawless, golden organic tubers multiplying comfortably in loose crumbly black soil"
+      },
+      "image_prompt_9_16": "Vertical 9:16, 3D animated underground cross-section portrait of Potato Pandu. Chubby, adorable golden-russet potato character with gentle smiling eyes, rosy cartoon cheeks, and tiny rootlet hands. Snuggled cozily inside soft, porous dark brown vermicompost soil surrounded by five glowing baby potato tubers. Soft warm underground lighting highlighting the airy, worm-aerated texture of the soil. Pixar cinematic style, subsurface light scattering, 8k resolution, no text, no watermark.",
+      "video_prompt_hook_8s": "Vertical 9:16, underground macro view: In soft dark B.S Organic vermicompost, Potato Pandu chuckles warmly as tiny root runners rapidly sprout into a dozen smooth golden baby potatoes around him. ASMR soft earthen shift and bubbling pop. No text, no captions."
+    },
+    {
+      "id": "pip_strawberry",
+      "name": "Pip Strawberry",
+      "tagline": "The Sweet Balcony Terrace Queen",
+      "category": "Fruit",
+      "visual_identity": {
+        "body": "Adorable heart-shaped strawberry girl with glistening ruby skin, golden recessed seed sparkles, big shiny anime-Pixar eyes, and a frilly leafy collar",
+        "colors": ["Vivid Strawberry Ruby", "Glittering Gold Seeds", "Mint Green Calyx"],
+        "props": "Wearing a crown of tiny white strawberry blossoms",
+        "setting": "Balcony vertical planter tower bathed in soft morning sunlight"
+      },
+      "transformation": {
+        "before_organic": "Small pale white-green berry with dry tip, tasteless and sour",
+        "after_organic": "Massive, heart-shaped, intensely fragrant, glowing with natural sugar and deep crimson color"
+      },
+      "image_prompt_9_16": "Vertical 9:16, 3D animated Pixar character portrait of Pip Strawberry. Adorable heart-shaped strawberry character with deep glistening ruby-red skin embedded with hundreds of tiny golden seeds. Big bright sparkling anime-style cartoon eyes, sweet radiant smile, and a ruffled crown of mint-green leaves and tiny white blossoms. Nestled happily in a terracotta pot filled with steamy dark black vermicompost. Soft morning dew drops, warm sunlight bokeh, 8k Octane 3D render, no text, no watermark.",
+      "video_prompt_hook_8s": "Vertical 9:16, macro 3D bloom: Pip Strawberry takes a deep drink of B.S Organic enriched water from the dark compost base. In seconds, her color transforms from pale green to glistening candy-red, puffing up like a sweet juicy heart! ASMR juicy stretch and dew drop splash. No text, no logos."
+    },
+    {
+      "id": "lemon_leo",
+      "name": "Lemon Leo",
+      "tagline": "The Citrus Powerhouse",
+      "category": "Fruit",
+      "visual_identity": {
+        "body": "Zesty bright sunshine-yellow lemon character with pebbled textured skin, wearing cool green leaf sunglasses and an energetic grin",
+        "colors": ["Electric Sunshine Yellow", "Glossy Lime Green", "Dark Soil Brown"],
+        "props": "Fresh aromatic citrus vapor mist swirling around him",
+        "setting": "Subtropical organic orchard tree branch in full bloom"
+      },
+      "transformation": {
+        "before_organic": "Small dry pale green pebble with fruit-drop syndrome",
+        "after_organic": "Plump heavy golden lemon packed with vitamin-rich organic juice oils, shining under bright sunshine"
+      },
+      "image_prompt_9_16": "Vertical 9:16, 3D animated character portrait of Lemon Leo, an upbeat lemon character. Bright sunshine-yellow citrus body with realistic pebbled peel texture, wearing stylish miniature leaf-shaped sunglasses, wide joyful grin. Hanging comfortably from a sturdy leafy citrus branch rooted in rich black vermicompost soil below. Fresh fine mist of citrus aroma droplets suspended in golden morning light. Pixar 3D aesthetic, vibrant dynamic colors, 8k quality, no text, no watermark.",
+      "video_prompt_hook_8s": "Vertical 9:16, high-speed macro: A splash of organic vermicompost tea feeds the roots; Lemon Leo on the branch swells with fresh juice, turning brilliant neon yellow with a satisfying pop and a refreshing citrus mist burst! ASMR pressurized squelch and crisp leaf rustle. No text, no logos."
+    },
+    {
+      "id": "alphonso_mango",
+      "name": "Alphonso Mango",
+      "tagline": "The Golden Organic King of Fruits",
+      "category": "Fruit",
+      "visual_identity": {
+        "body": "Regal, plump golden-saffron mango character with gentle red blush on shoulders, noble friendly expression, wearing a miniature golden leaf crown",
+        "colors": ["Golden Saffron Yellow", "Sunset Coral Blush", "Lush Forest Green"],
+        "props": "Tiny royal cape made of fresh mango leaves",
+        "setting": "Traditional organic mango orchard at golden hour"
+      },
+      "transformation": {
+        "before_organic": "Fallen blossom, blackened nursery sapling leaves from chemical burn",
+        "after_organic": "Magnificent fragrant fruit loaded with rich natural sweetness, zero chemical residues"
+      },
+      "image_prompt_9_16": "Vertical 9:16, 3D animated character portrait of Alphonso Mango, the King of Fruits. Plump, smooth saffron-gold mango character with a delicate sunset-coral blush, wearing a small natural crown woven from fresh green leaves. Dignified yet warm smiling cartoon eyes. Perched proudly on an orchard tree branch with rich dark black vermicompost soil carpeted beneath the tree. Sunset golden hour backlight, cinematic atmosphere, 8k Octane render, no text, no watermark.",
+      "video_prompt_hook_8s": "Vertical 9:16, cinematic slow reveal: Golden sunlight bathes the orchard. B.S Organic vermicompost feeds the tree base, and Alphonso Mango glows with a golden aura, turning velvety saffron sweet. ASMR gentle breeze and sweet aromatic chime. No text, no captions."
+    },
+    {
+      "id": "rozy_rose",
+      "name": "Rozy Rose",
+      "tagline": "The Terrace Garden Showstopper",
+      "category": "Flower",
+      "visual_identity": {
+        "body": "Elegant, velvety deep-crimson rose bloom character with layered spiral petals, graceful feminine eyelashes, sweet welcoming smile, and a sturdy emerald stem",
+        "colors": ["Velvety Deep Crimson", "Burgundy Shading", "Deep Emerald Foliage"],
+        "props": "Glistening crystal dew drops resting like diamonds on her petals",
+        "setting": "Luxury terrace balcony garden in a stylish terracotta urn filled with vermicompost"
+      },
+      "transformation": {
+        "before_organic": "Withered dry brown bud infested with aphids, drooping on a yellowed stem",
+        "after_organic": "Exploding into a massive 40-petal velvety crimson bloom with intoxicating natural scent and glossy pest-free foliage"
+      },
+      "image_prompt_9_16": "Vertical 9:16, 3D animated Pixar character portrait of Rozy Rose. Breathtaking rose blossom character with hundreds of layered, velvety deep crimson petals forming an elegant smiling face with gentle eyelashes. Glistening morning dew drops resting on petals like tiny lenses reflecting garden light. Sturdy emerald stem with healthy thornless leaves rooted in moist, dark crumbly black vermicompost inside an ornate terracotta pot. Dreamy morning garden background, shallow depth of field, 8k render, no text, no watermark.",
+      "video_prompt_hook_8s": "Vertical 9:16, time-lapse macro bloom: A tight, sad rose bud sits surrounded by dry soil. Dark B.S Organic vermicompost is sprinkled around the base; water activates the microbes. The bud unfurls gracefully into a giant velvety crimson rose with a joyful smile! ASMR petal stretch, dew drip, and fragrant harp chime. No text, no logos."
+    },
+    {
+      "id": "genda_marigold",
+      "name": "Genda (Mighty Marigold)",
+      "tagline": "The Festive Pest-Repelling Sunburst",
+      "category": "Flower",
+      "visual_identity": {
+        "body": "Super-fluffy, layered bright orange-gold marigold character resembling a festive golden pom-pom with wide cheerful eyes and boundless sunny energy",
+        "colors": ["Bright Saffron Gold", "Tangerine Orange", "Spring Green"],
+        "props": "Natural golden aromatic aura that gently repels garden pests",
+        "setting": "Traditional Indian courtyard terrace garden in festival season"
+      },
+      "transformation": {
+        "before_organic": "Single sad flat flower with pale yellow color",
+        "after_organic": "Gigantic, ultra-dense 100-petal golden sphere radiating festive vitality"
+      },
+      "image_prompt_9_16": "Vertical 9:16, 3D animated Pixar character portrait of Genda Marigold. Super-dense, fluffy spherical marigold character made of hundreds of ruffled golden-saffron and tangerine petals. Big joyful cartoon eyes, energetic beaming smile, sitting in a painted clay pot filled with rich, spongy dark brown vermicompost. Sunlight illuminates translucent petal edges with festive golden warmth. 8k Octane 3D render, tactile ruffled petal texture, no text, no watermark.",
+      "video_prompt_hook_8s": "Vertical 9:16, dynamic 3D explosion: Genda Marigold absorbs fresh vermicompost nutrition through the roots, puffing up like a giant fluffy golden firework, scattering sweet natural fragrance across the garden! ASMR soft ruffle fluff sound and festive bells. No text, no logos."
+    },
+    {
+      "id": "mogra_jasmine",
+      "name": "Mogra (Sweet Jasmine)",
+      "tagline": "The Fragrance Queen",
+      "category": "Flower",
+      "visual_identity": {
+        "body": "Pure ivory-white multi-layered Arabian jasmine flower character with porcelain-smooth petals, serene smiling eyes, and a soothing calming presence",
+        "colors": ["Pristine Ivory White", "Soft Pearl Cream", "Deep Forest Green"],
+        "props": "Delicate white aroma waves wafting gracefully into the air",
+        "setting": "Moonlit balcony garden or warm morning veranda"
+      },
+      "transformation": {
+        "before_organic": "Brown-tipped closed buds falling off before blooming",
+        "after_organic": "Hundreds of pure white blossoms opening simultaneously, filling the air with heavenly fragrance"
+      },
+      "image_prompt_9_16": "Vertical 9:16, 3D animated Pixar character portrait of Mogra Jasmine. Delicate, multi-layered pristine ivory-white jasmine blossom with porcelain-like soft petals and peaceful smiling eyes. Sitting gracefully on a dark green leafy branch rooted in a pot of dark, rich B.S Organic vermicompost. Soft romantic evening moonlight and golden fairy lights creating gentle bokeh in the background. Photorealistic 3D render, tactile petal softness, 8k quality, no text, no captions.",
+      "video_prompt_hook_8s": "Vertical 9:16, serene night-to-dawn macro: In moist dark vermicompost, Mogra Jasmine's tight white buds drink in nutrients and unfurl with a crystalline shimmer, releasing gentle white fragrant aroma ribbons into the air. ASMR delicate bloom rustle and wind chimes. No text, no watermark."
+    },
+    {
+      "id": "sona_gehun",
+      "name": "Sona Gehun (Golden Wheat)",
+      "tagline": "The Farmer's Pride Cash Crop",
+      "category": "Cash Crop",
+      "visual_identity": {
+        "body": "Tall, proud, golden wheat ear character with symmetrical shimmering grain kernels, waving happily in the wind with a strong rustic farmer spirit",
+        "colors": ["Burnished Amber Gold", "Warm Wheat Straw", "Black Earth Soil"],
+        "props": "Wearing a tiny rustic red cotton farmer scarf",
+        "setting": "Expansive organic farm field under open blue sky"
+      },
+      "transformation": {
+        "before_organic": "Thin, yellowed, brittle stalk with empty grain husks in saline chemical-crusted land",
+        "after_organic": "Thick heavy golden stalks bowed down with full, dense, nutritious organic grain kernels"
+      },
+      "image_prompt_9_16": "Vertical 9:16, 3D animated Pixar character portrait of Sona Gehun, a heroic golden wheat character. Symmetrical, full amber-gold grain head with crisp golden awns (bristles), smiling proudly with strong rustic charm, wearing a tiny red farmer scarf. Rooted deeply in rich, fertile, dark black organic vermicompost soil. Endless sunny golden wheat fields in the soft-focus background with blue sky and fluffy white clouds. 8k Octane 3D render, natural grain texture, cinematic lighting, no text, no watermark.",
+      "video_prompt_hook_8s": "Vertical 9:16, sweeping farm camera: Deep roots drink from black vermicompost earth; the wheat stalk surges upward, kernels swelling into heavy golden grain that glints in the sun with a wave of farmer pride! ASMR whispering wheat field breeze and full grain rustle. No text, no logos."
+    },
+    {
+      "id": "kapas_cotton",
+      "name": "Kapas (Fluffy Cotton)",
+      "tagline": "The Cloud of the Farm",
+      "category": "Cash Crop",
+      "visual_identity": {
+        "body": "Super-soft, fluffy cloud-like white cotton boll character nestled inside a dry star-shaped sepia pod, big bubbly innocent eyes and cheerful giggles",
+        "colors": ["Pure Cloud White", "Sepia Brown Pod", "Deep Black Loam"],
+        "props": "Soft white fluff floating gently like miniature clouds",
+        "setting": "Organic cotton field ready for harvest"
+      },
+      "transformation": {
+        "before_organic": "Pest-eaten, bollworm damaged dark shriveled boll",
+        "after_organic": "Snow-white, oversized, pristine organic cotton boll bursting effortlessly into four puffy clouds"
+      },
+      "image_prompt_9_16": "Vertical 9:16, 3D animated character portrait of Kapas Cotton. Incredibly fluffy, pure-white cloud-like cotton boll character with big round friendly cartoon eyes, resting inside a star-shaped dry brown pod. Soft tactile fiber textures, individual cotton wisps catching the warm afternoon sunlight. Plant rooted in fertile, dark black vermicompost soil. Pixar 3D aesthetic, ultra-soft subsurface scattering, 8k resolution, no text, no watermark.",
+      "video_prompt_hook_8s": "Vertical 9:16, macro slow motion: The pod splits open as a burst of pure-white, fluffy Kapas Cotton expands like a marshmallow cloud, giggling with organic health! ASMR soft cotton puff sound and sunny breeze. No text, no captions."
+    }
+  ]
+}
