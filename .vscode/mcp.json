@@ -1,7 +1,7 @@
 {
   "mcpServers": {
     "google-flow": {
-      "command": "python",
+      "command": "c:\\Projects\\B.S Organic Flow Agent\\.venv\\Scripts\\python.exe",
       "args": [
         "c:\\Projects\\B.S Organic Flow Agent\\mcp_server.py"
       ]
