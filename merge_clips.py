@@ -257,11 +257,12 @@ def purge_raw_clips(clip_paths: List[Path]) -> None:
 
 def auto_merge_sequence_from_state(
     target_count: int = 5,
-    output_filename: str = "master_short.mp4",
-    subtitles: bool = True,
+    output_filename: Optional[str] = None,
+    subtitles: bool = False,
+    story_id: Optional[str] = None,
 ) -> Optional[Path]:
-    """Inspects prompts_state.json. If all clips in a sequence are completed,
-    automatically merges them in exact clip order into a clean 40-second master video.
+    """Inspects prompts_state.json. If all clips in a sequence (or for story_id) are marked 'Completed'
+    and their output files exist in output_videos/, merges them into a 40s master short.
     """
     if not STATE_FILE.exists():
         logger.info(f"State file {STATE_FILE} does not exist.")
@@ -274,12 +275,34 @@ def auto_merge_sequence_from_state(
         logger.error(f"Failed to read state file: {e}")
         return None
 
-    if len(items) < target_count:
-        logger.info(f"Only {len(items)} items in state, need {target_count} to merge.")
+    # Filter by story_id if specified, or find the story_id group
+    if story_id:
+        sequence_items = [it for it in items if it.get("story_id") == story_id]
+        sequence_items.sort(key=lambda x: x.get("beat", 0))
+    else:
+        # Check if there are items with a story_id that has all completed items
+        story_groups: Dict[str, List[Dict[str, Any]]] = {}
+        for it in items:
+            s_id = it.get("story_id")
+            if s_id:
+                story_groups.setdefault(s_id, []).append(it)
+        
+        selected_group = None
+        for s_id, s_items in story_groups.items():
+            if len(s_items) >= target_count and all(it.get("status") == "Completed" for it in s_items):
+                selected_group = s_items
+                story_id = s_id
+                break
+        
+        if selected_group:
+            sequence_items = sorted(selected_group, key=lambda x: x.get("beat", 0))[:target_count]
+        else:
+            sequence_items = items[:target_count]
+
+    if len(sequence_items) < target_count:
+        logger.info(f"Only {len(sequence_items)} items found for sequence, need {target_count} to merge.")
         return None
 
-    # Check the first target_count items (or latest target_count items)
-    sequence_items = items[:target_count]
     completed_clips: List[Path] = []
 
     for idx, it in enumerate(sequence_items, start=1):
@@ -297,8 +320,9 @@ def auto_merge_sequence_from_state(
         completed_clips.append(clip_path)
 
     # All clips are verified and present in sequence order!
-    logger.info(f"All {target_count} clips are completed! Triggering automatic merge (subtitles={subtitles})...")
-    out_master = OUTPUT_DIR / output_filename
+    effective_out_name = output_filename or f"{story_id or 'kisan_appeal'}_master_40s.mp4"
+    logger.info(f"All {target_count} clips are completed! Triggering automatic merge -> {effective_out_name}...")
+    out_master = OUTPUT_DIR / effective_out_name
     if subtitles:
         success = merge_clips_with_subtitles(completed_clips, out_master)
     else:

@@ -91,9 +91,10 @@ class GoogleFlowAutomation:
         return True
 
     def ensure_project_open(self, page: Page, timeout_sec: int = 20) -> bool:
-        """Ensures the browser has entered an active Google Flow project canvas."""
+        """Ensures the browser has entered an active Google Flow project canvas in direct video mode."""
         current_url = page.url.lower()
         if "/project/" in current_url:
+            self.prepare_direct_video_mode(page)
             return True
 
         logger.info("Opening Google Flow project studio...")
@@ -238,6 +239,26 @@ class GoogleFlowAutomation:
         for trigger, msg in error_indicators:
             if trigger.lower() in page_text.lower():
                 return msg
+    def prepare_direct_video_mode(self, page: Page) -> None:
+        """Ensures the Google Flow studio is in Direct Video Generation mode (not Agent chat mode)."""
+        try:
+            close_btn = page.locator("button[aria-label='Close'], button:has-text('right_panel_close')").first
+            if close_btn.is_visible():
+                logger.info("Closing agent side panel to expose direct video canvas...")
+                close_btn.click()
+                page.wait_for_timeout(800)
+        except Exception:
+            pass
+
+        try:
+            agent_switch = page.locator(".switch.checked, button[aria-label='Flow agent'].checked").first
+            if agent_switch.is_visible():
+                logger.info("Disabling Flow agent switch to activate Direct Video mode...")
+                agent_switch.click()
+                page.wait_for_timeout(800)
+        except Exception:
+            pass
+
     def configure_generation_settings(
         self,
         page: Page,
@@ -250,7 +271,8 @@ class GoogleFlowAutomation:
         quantity: str = "x1",
     ) -> bool:
         """Configures generation parameters (Video, 9:16 vertical ratio, Omni 1.2 Flash/Veo, 720p, 8s, x1) in the Flow popover."""
-        settings_btn = page.locator("button:has-text('Video'), button:has-text('Nano Banana'), button:has-text('Banana'), button:has-text('Veo'), button:has-text('crop_')").first
+        self.prepare_direct_video_mode(page)
+        settings_btn = page.locator("button[aria-label='Settings trigger'], .settings-trigger-button, button:has-text('Video'), button:has-text('Nano Banana'), button:has-text('Banana'), button:has-text('Veo'), button:has-text('crop_')").first
         if not settings_btn.is_visible():
             logger.debug("Settings trigger button not found.")
             return False
@@ -512,16 +534,18 @@ class GoogleFlowAutomation:
             self.prompt_manager.update_status(prompt_id, "Failed", error=err)
             return False
 
-        # Snapshot all pre-existing video URLs in the DOM before triggering new generation
+        # Snapshot pre-existing state before triggering new generation
         known_video_urls: Set[str] = set()
+        initial_tile_count = 0
         try:
             for i in range(page.locator("video").count()):
                 s = page.locator("video").nth(i).get_attribute("src")
                 if s:
                     known_video_urls.add(s.strip())
+            initial_tile_count = page.locator("flow-video-tile").count()
         except Exception:
             pass
-        logger.info(f"Existing video URLs on page before generation: {len(known_video_urls)}")
+        logger.info(f"Pre-generation state: {len(known_video_urls)} video URLs, {initial_tile_count} canvas tiles.")
 
         # 2. Enter prompt into ProseMirror / input element
         try:
@@ -586,29 +610,52 @@ class GoogleFlowAutomation:
                     self.prompt_manager.update_status(prompt_id, "Failed", error=error_detected)
                     return False
 
-                # 1. Check for live progress percentage or completed video tile
+                elapsed = time.time() - start_time
+
+                # 1. Check for live progress percentage text in UI
+                pct_value = None
                 try:
                     import re
                     body_txt = page.locator("body").inner_text()
                     pct = re.search(r'(\d{1,3})%', body_txt)
                     if pct:
-                        logger.info(f"Google Flow video rendering progress: {pct.group(1)}%")
-                    elif page.locator("flow-video-tile").count() > 0:
-                        elapsed = time.time() - start_time
-                        if elapsed > 15:
-                            logger.info("Generation complete! flow-video-tile detected on canvas.")
-                            generation_completed = True
-                            break
+                        pct_value = int(pct.group(1))
+                        logger.info(f"Google Flow video rendering progress: {pct_value}%")
                 except Exception:
                     pass
 
-                # Check if stream URL was captured directly (guaranteed fresh)
+                # 2. Check if flow-video-tile has rendered and is ready
+                if elapsed > 15:
+                    tiles = page.locator("flow-video-tile")
+                    current_tile_count = tiles.count()
+                    if current_tile_count > 0:
+                        target_tile = tiles.first
+                        is_pending = target_tile.locator("flow-pending-tile").count() > 0
+                        has_video = target_tile.locator("video, img.thumbnail").count() > 0
+                        if not is_pending and has_video and (current_tile_count > initial_tile_count or elapsed > 20):
+                            logger.info(f"Generation complete! New video tile finished rendering (elapsed: {elapsed:.1f}s).")
+                            generation_completed = True
+                            break
+
+                        # Hover over tile to check if hotbar is active
+                        try:
+                            target_tile.hover(timeout=1500)
+                            page.wait_for_timeout(300)
+                            more_btn = target_tile.locator("button[aria-label='More options']").first
+                            if more_btn.is_visible() and not is_pending:
+                                logger.info(f"Generation complete! Latest flow-video-tile is ready (elapsed: {elapsed:.1f}s).")
+                                generation_completed = True
+                                break
+                        except Exception:
+                            pass
+
+                # 3. Check if stream URL was captured directly (guaranteed fresh)
                 if captured_stream_url:
                     logger.info("Direct fresh video stream detected from Flow CDN!")
                     generation_completed = True
                     break
 
-                # Check if a FRESH video element has appeared in the DOM
+                # 4. Check if a FRESH video element has appeared in the DOM
                 for i in range(page.locator("video").count()):
                     src = page.locator("video").nth(i).get_attribute("src")
                     if src and src.strip() not in known_video_urls and page.locator("video").nth(i).is_visible():
@@ -619,15 +666,14 @@ class GoogleFlowAutomation:
                 if generation_completed:
                     break
 
-                # Only after 60 seconds of real rendering, try opening the canvas card
-                elapsed = time.time() - start_time
-                if elapsed > 60:
+                # 5. Fallback: After 45 seconds, try opening canvas card if present
+                if elapsed > 45:
                     if self.try_open_canvas_card(page, excluded_urls=known_video_urls, keyword=prompt_item.get("character_name")):
                         logger.info("Video generation completed and modal opened!")
                         generation_completed = True
                         break
 
-                time.sleep(5)
+                time.sleep(4)
         finally:
             try:
                 page.remove_listener("response", on_response)
@@ -713,7 +759,7 @@ class GoogleFlowAutomation:
         # Check and auto-merge completed multi-clip sequences into a 40s Short
         try:
             from merge_clips import auto_merge_sequence_from_state
-            merged_master = auto_merge_sequence_from_state(target_count=5)
+            merged_master = auto_merge_sequence_from_state(target_count=5, story_id=story_id)
             if merged_master:
                 logger.info(f"Automatically merged 40s master short: {merged_master.name}")
         except Exception as e:
